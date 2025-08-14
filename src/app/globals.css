@@ -3,11 +3,13 @@
 :root {
   --color-primary: #090F13;
   --color-secondary: #89ECFF;
+  --color-cfgray: #CFCFCF;
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
+  --color-cfgray: var(--color-cfgray);
 
   --font-primary: var(--font-poppins);
   --font-mono: var(--font-anonymous-pro);
@@ -16,4 +18,25 @@
 body {
   font-family: var(--font-primary);
   background-color: var(--color-primary);
+}
+
+.fade-mask {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 }

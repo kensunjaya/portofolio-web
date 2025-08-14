@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export const TextRandomizerEffect = ({ words, className, placeholder = false, callback }: { words: string; className?: string; placeholder?: boolean; callback?: (arg0: number) => number }) => {
-  const [displayedWords, setDisplayedWords] = useState(placeholder ? "-".repeat(words.length) : "");
+  const [displayedWords, setDisplayedWords] = useState(placeholder ? "\u00A0".repeat(words.length) : "");
 
   useEffect(() => {
     setDisplayedWords("");

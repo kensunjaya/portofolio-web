@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-const CustomButton = ({ onClick, children }: { onClick: () => void; children: ReactNode }) => {
+const CustomButton = ({ onClick, children, type="button" }: { onClick?: () => void; children: ReactNode; type?: "button" | "submit" }) => {
   const [fillingWidth, setFillingWidth] = useState(0);
   const handleHover = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { width } = event.currentTarget.getBoundingClientRect();
@@ -9,6 +9,7 @@ const CustomButton = ({ onClick, children }: { onClick: () => void; children: Re
   return (
     <button
       className="text-lg font-semibold text-primary bg-secondary rounded-md transition cursor-pointer min-w-[10rem] min-h-[3rem] relative overflow-hidden"
+      type={type}
       onClick={onClick}
       onMouseEnter={handleHover}
       onMouseLeave={() => setFillingWidth(0)}
@@ -20,7 +21,7 @@ const CustomButton = ({ onClick, children }: { onClick: () => void; children: Re
           pointerEvents: "none",
         }}
       />
-      <span className="relative z-10 px-4">{children}</span>
+      <div className="relative z-10 px-4">{children}</div>
     </button>
   );
 };

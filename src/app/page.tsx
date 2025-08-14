@@ -10,6 +10,7 @@ import { Project } from "@/components/project";
 import { TechStackSlider } from "@/components/ui/techstack-slider";
 import { RoleAnimator } from "@/components/role-animator";
 import { Experience } from "@/components/experience";
+import { ContactSection } from "@/components/contact";
 
 function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -57,11 +58,11 @@ function Home() {
       <div className="h-screen">
         <div className="flex flex-col items-center justify-center h-full text-white text-4xl">
           <div className="space-y-4">
-            <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
+            <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest text-white" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
             <div className="min-w-[50rem]">
               <RoleAnimator />
             </div>
-            <TextGenerateEffect words={'"Building interactive web experiences with modern technologies"'} className="tracking-widest text-lg" duration={0.2} delay={0.15} />
+            <TextGenerateEffect words={'"Building interactive web experiences with modern technologies"'} className="tracking-widest text-lg text-cfgray" duration={0.2} delay={0.15} />
             <TechStackSlider className="mt-10" style={{ opacity: techStackOpacity / 100 }} />
           </div>
         </div>
@@ -80,21 +81,8 @@ function Home() {
         link={"https://next-sudoku-web.vercel.app"}
         number={2}
       />
-      <Experience 
-        content={[
-          {
-            title: "Front-End Development Class Mentor",
-            description: "Developed scalable web applications using React and Node.js, improving performance by 30%.",
-            content: <Image src="/mentor.png" alt="Mentor" width={300} height={200} draggable={false} />,
-          },
-          {
-            title: "Front-End Developer at ABC Ltd",
-            description: "Led the front-end team in creating responsive designs and enhancing user experience.",
-            content: <Image src="/compfest.jpg" alt="ABC Ltd" width={300} height={200} draggable={false} />,
-          },
-        ]}
-        contentClassName="bg-gradient-to-r from-blue-500 to-purple-500"
-      />
+      <Experience />
+      <ContactSection />
     </main>
   );
 }

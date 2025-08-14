@@ -1,6 +1,7 @@
 import { handleOpenUrl } from "@/lib/utilfunctions";
 import CustomButton from "./custom-button";
 import { TextRandomizerEffect } from "./ui/text-randomizer";
+import { MdOutlineArrowOutward } from "react-icons/md";
 import Image from "next/image";
 
 export const Project = ({title, description, imageUrl, link, number} : {title: string, description: string, imageUrl: string, link: string, number: number}) => {
@@ -13,13 +14,16 @@ export const Project = ({title, description, imageUrl, link, number} : {title: s
             <span>{number}</span>
           </div>
           <TextRandomizerEffect className="text-5xl font-semibold" words={title} placeholder={true} />
-          <p className="text-3xl">{description}</p>
+          <p className="text-3xl text-cfgray">{description}</p>
           <CustomButton onClick={() => handleOpenUrl(link)}>
-            {"Try Now"}
+            <div className="flex items-center justify-center gap-2">
+              <div>View Project</div>
+              <MdOutlineArrowOutward className="text-xl" />
+            </div>
           </CustomButton>
         </div>
         <div className="flex items-center justify-center select-none">
-          <Image src={imageUrl} alt={title} width={800} height={800} draggable={false} />
+          <Image src={imageUrl} alt={title} width={600} height={600} draggable={false} />
         </div>
       </div>
     </div>

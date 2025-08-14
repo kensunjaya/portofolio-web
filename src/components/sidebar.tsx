@@ -10,13 +10,18 @@ export const SideBar = () => {
           alt="Logo"
           width={48}
           height={48}
-          onClick={() => handleScrollTo("")}
+          onClick={() => {
+            if (window.location.pathname !== "/") {
+              window.location.href = "/";
+            }
+            handleScrollTo("")
+          }}
           style={{ cursor: "pointer" }}
         />
         <div className="rotate-270 space-x-10">
           {[
         { label: "Contact", id: "#contact" },
-        { label: "Achievements", id: "#achievements" },
+        { label: "Experience", id: "#experience" },
         { label: "Projects", id: "#project1" },
           ].map(({ label, id }) => (
         <a
@@ -25,6 +30,9 @@ export const SideBar = () => {
           className="relative text-white px-2 py-1 overflow-hidden group"
           onClick={e => {
             e.preventDefault();
+            if (window.location.pathname !== "/") {
+              window.location.href = "/";
+            }
             handleScrollTo(id);
           }}
         >
