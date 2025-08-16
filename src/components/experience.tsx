@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { ExperienceCard } from "./ui/experience-card";
+import { motion } from "framer-motion";
 
 
 type Card = {
@@ -132,7 +133,12 @@ export const Experience = () => {
           ))}
         </div>
 
-        <div className="relative w-[600px] h-[400px]">
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="relative w-[600px] h-[400px]"
+        >
           {cards.map((card, i) => (
             <Image
               key={i}
@@ -144,7 +150,7 @@ export const Experience = () => {
                 ${i === activeIndex ? "opacity-100" : "opacity-0"}`}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

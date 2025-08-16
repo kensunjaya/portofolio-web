@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-const CustomButton = ({ onClick, children, type="button", nofill=false }: { onClick?: () => void; children: ReactNode; type?: "button" | "submit"; nofill?: boolean }) => {
+const CustomButton = ({ onClick, children, type="button", nofill=false, disabled=false }: { onClick?: () => void; children: ReactNode; type?: "button" | "submit"; nofill?: boolean; disabled?: boolean }) => {
   const [fillingWidth, setFillingWidth] = useState(0);
   const handleHover = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { width } = event.currentTarget.getBoundingClientRect();
@@ -13,6 +13,7 @@ const CustomButton = ({ onClick, children, type="button", nofill=false }: { onCl
       onClick={onClick}
       onMouseEnter={handleHover}
       onMouseLeave={() => setFillingWidth(0)}
+      disabled={disabled}
     >
       <div
         className="absolute left-0 top-0 h-full bg-cyan-400 transition-all duration-300 z-0"

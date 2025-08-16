@@ -10,6 +10,7 @@ import { ContactSection } from "@/components/contact";
 import { HomeSection } from "@/components/home";
 import { LazySection } from "@/components/ui/lazy-section";
 import { ViewCVButton } from "@/components/ui/curriculum-vitae";
+import { SocialMediaLinks } from "@/components/ui/social-media";
 
 function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -30,6 +31,7 @@ function Home() {
   return (
     <main className="w-full min-h-screen overflow-hidden">
       <Spotlight />
+      <SocialMediaLinks />
       <ViewCVButton />
       <SideBar />
       {scrollIconOpacity > 0 && (

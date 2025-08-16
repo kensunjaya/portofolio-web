@@ -3,26 +3,36 @@ import CustomButton from "./custom-button";
 import { TextRandomizerEffect } from "./ui/text-randomizer";
 import { IoSend } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export const ContactSection = () => {
   const [openMessagePage, setOpenMessagePage] = useState(false);
 
+  const router = useRouter();
+
   useEffect(() => {
     if (openMessagePage) {
       setTimeout(() => {
-        window.location.href = "/send-message";
-      }, 500)
+        router.push("/send-message");
+      }, 500);
     }
   }, [openMessagePage]);
 
   return (
     <div className={`flex flex-row items-center justify-center h-screen gap-20 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`} id="contact">
-      <Image 
-        src="/profile_enhanced.jpg"
-        alt="Your Image Description"
-        width={400}
-        height={500}
-      />
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <Image 
+          src="/profile_enhanced.jpg"
+          alt="Your Image Description"
+          width={400}
+          height={500}
+        />
+      </motion.div>
       <div className="flex flex-col max-w-[40rem]">
         <TextRandomizerEffect className="text-5xl font-semibold" words={"Hello World!"} placeholder />
         <p className="text-lg mb-8 text-cfgray mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>

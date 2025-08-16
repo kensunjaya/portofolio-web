@@ -1,23 +1,38 @@
 "use client";
 import CustomButton from "@/components/custom-button";
 import { SideBar } from "@/components/sidebar";
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Spotlight } from "@/components/ui/spotlight";
 import { TextRandomizerEffect } from "@/components/ui/text-randomizer";
 import { IoSend } from "react-icons/io5";
-import { Spotlight } from "@/components/ui/spotlight";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Slide, toast } from 'react-toastify';
+
+
+import emailjs from "@emailjs/browser";
+import { useRouter } from "next/navigation";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const SendMessagePage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
   });
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const router = useRouter();
+  const onSubmit = async (data: FormData) => {
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -26,19 +41,25 @@ const SendMessagePage = () => {
       if (!serviceID || !templateID || !userID) {
         throw new Error("Missing EmailJS configuration");
       }
-      const res = await emailjs.send(serviceID, templateID, formData, userID);
 
-      if (res.status === 200) {
-        console.log("Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-        window.location.href = "/";
-      }
+      await emailjs.send(serviceID, templateID, data, userID);
+      reset();
+      toast.success('Thank you for your message! We will get back to you soon.', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Slide,
+      });
+      setTimeout(() => {
+        router.push("/");
+      }, 200);
     } catch (error) {
-      console.error("Failed to send message. Error:", error);
+      console.error("❌ Failed to send message:", error);
+      toast.error("❌ Failed to send message. Please try again.");
     }
   };
 
@@ -49,62 +70,66 @@ const SendMessagePage = () => {
 
       {/* Slide-up animation wrapper */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}   // start below
-        animate={{ opacity: 1, y: 0 }}    // slide up into place
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full max-w-xl px-6"
       >
         <TextRandomizerEffect
-          words="Send a Message"
+          words="Send me a Message"
           className="text-3xl font-semibold mb-10"
           placeholder
         />
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your name"
-            aria-label="Your name"
-            required
-            value={formData.name}
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
-            className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
-          />
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+          {/* Name */}
+          <div>
+            <input
+              type="text"
+              placeholder="Your name"
+              aria-label="Your name"
+              {...register("name")}
+              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            )}
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            aria-label="Your email"
-            required
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
-          />
+          {/* Email */}
+          <div>
+            <input
+              type="email"
+              placeholder="Your email"
+              aria-label="Your email"
+              {...register("email")}
+              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+            )}
+          </div>
 
-          <textarea
-            name="message"
-            placeholder="Your message"
-            aria-label="Your message"
-            rows={5}
-            required
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-            className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
-          />
+          {/* Message */}
+          <div>
+            <textarea
+              placeholder="Your message"
+              aria-label="Your message"
+              rows={5}
+              {...register("message")}
+              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+            )}
+          </div>
 
+          {/* Submit */}
           <div className="pt-2">
-            <CustomButton type="submit">
+            <CustomButton type="submit" disabled={isSubmitting}>
               <div className="flex items-center justify-center gap-2">
                 <IoSend className="text-xl" />
-                <div>Send</div>
+                <div>{isSubmitting ? "Sending..." : "Send"}</div>
               </div>
             </CustomButton>
           </div>
