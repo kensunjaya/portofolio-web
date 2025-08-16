@@ -2,10 +2,11 @@
 import CustomButton from "@/components/custom-button";
 import { SideBar } from "@/components/sidebar";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 import { TextRandomizerEffect } from "@/components/ui/text-randomizer";
 import { IoSend } from "react-icons/io5";
 import { Spotlight } from "@/components/ui/spotlight";
+import { motion } from "framer-motion";
 
 const SendMessagePage = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,6 @@ const SendMessagePage = () => {
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     try {
-
       if (!serviceID || !templateID || !userID) {
         throw new Error("Missing EmailJS configuration");
       }
@@ -33,7 +33,7 @@ const SendMessagePage = () => {
         setFormData({
           name: "",
           email: "",
-          message: ""
+          message: "",
         });
         window.location.href = "/";
       }
@@ -46,8 +46,19 @@ const SendMessagePage = () => {
     <div className="flex flex-col items-center justify-center h-screen">
       <Spotlight />
       <SideBar />
-      <div className="w-full max-w-xl px-6">
-        <TextRandomizerEffect words="Send a Message" className="text-3xl font-semibold mb-10" placeholder />
+
+      {/* Slide-up animation wrapper */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}   // start below
+        animate={{ opacity: 1, y: 0 }}    // slide up into place
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-xl px-6"
+      >
+        <TextRandomizerEffect
+          words="Send a Message"
+          className="text-3xl font-semibold mb-10"
+          placeholder
+        />
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <input
@@ -57,7 +68,9 @@ const SendMessagePage = () => {
             aria-label="Your name"
             required
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
             className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
           />
 
@@ -68,7 +81,9 @@ const SendMessagePage = () => {
             aria-label="Your email"
             required
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
           />
 
@@ -79,7 +94,9 @@ const SendMessagePage = () => {
             rows={5}
             required
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
             className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
           />
 
@@ -92,7 +109,7 @@ const SendMessagePage = () => {
             </CustomButton>
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

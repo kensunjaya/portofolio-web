@@ -1,31 +1,24 @@
 'use client';
 import React, { useEffect } from "react";
 import { Spotlight } from "@/components/ui/spotlight";
-import { TextGenerateEffect } from "@/components/ui/text-generation.effect";
-import { TextRandomizerEffect } from "@/components/ui/text-randomizer";
 import Image from "next/image";
 import { SideBar } from "@/components/sidebar";
 import { handleScrollTo } from "@/lib/utilfunctions";
 import { Project } from "@/components/project";
-import { TechStackSlider } from "@/components/ui/techstack-slider";
-import { RoleAnimator } from "@/components/role-animator";
 import { Experience } from "@/components/experience";
 import { ContactSection } from "@/components/contact";
+import { HomeSection } from "@/components/home";
+import { LazySection } from "@/components/ui/lazy-section";
+import { ViewCVButton } from "@/components/ui/curriculum-vitae";
 
 function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
-  const [techStackOpacity, setTechStackOpacity] = React.useState(0);
+
   const [scrollIconOpacity, setScrollIconOpacity] = React.useState(0);
   const handleScroll = () => {
     setScrollPosition(window.scrollY);
     setScrollIconOpacity(100 - window.scrollY);
-    setTechStackOpacity(1000 - window.scrollY);
     console.log("Scroll Position:", window.scrollY);
-  };
-
-  const setOpacity = (opacity: number) => {
-    setScrollIconOpacity(opacity);
-    setTechStackOpacity(opacity);
   };
 
   useEffect(() => {
@@ -37,6 +30,7 @@ function Home() {
   return (
     <main className="w-full min-h-screen overflow-hidden">
       <Spotlight />
+      <ViewCVButton />
       <SideBar />
       {scrollIconOpacity > 0 && (
         <div className="fixed w-full h-screen flex flex-col justify-end items-center bottom-20 space-y-3 transition duration-200" style={{ opacity: scrollIconOpacity / 100 }}>
@@ -55,34 +49,44 @@ function Home() {
           />
         </div>
       )}
-      <div className="h-screen">
-        <div className="flex flex-col items-center justify-center h-full text-white text-4xl">
-          <div className="space-y-4">
-            <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest text-white" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
-            <div className="min-w-[50rem]">
-              <RoleAnimator />
-            </div>
-            <TextGenerateEffect words={'"Building interactive web experiences with modern technologies"'} className="tracking-widest text-lg text-cfgray" duration={0.2} delay={0.15} />
-            <TechStackSlider className="mt-10" style={{ opacity: techStackOpacity / 100 }} />
-          </div>
-        </div>
-      </div>
-      <Project
-        title={'Chroma War'}
-        description={"A fast-paced two-player chain reaction strategy game. Challenge friends online or test your skills against a smart AI opponent!"}
-        imageUrl={"/chroma-war.svg"}
-        link={"https://chroma-war.vercel.app"}
-        number={1}
-      />
-      <Project
-        title={'NExT Sudoku'}
-        description={"A modern take on the classic Sudoku puzzle, featuring an intuitive interface and challenging AI."}
-        imageUrl={"/next-sudoku.svg"}
-        link={"https://next-sudoku-web.vercel.app"}
-        number={2}
-      />
-      <Experience />
-      <ContactSection />
+      <LazySection id="home">
+        <HomeSection />
+      </LazySection>
+
+      <LazySection id="project1">
+        <Project
+          title={'Chroma War'}
+          description={"A fast-paced two-player chain reaction strategy game. Challenge friends online or test your skills against a smart AI opponent!"}
+          imageUrl={"/chroma-war.svg"}
+          link={"https://chroma-war.vercel.app"}
+          number={1}
+        />
+      </LazySection>
+
+      <LazySection id="project2">
+        <Project
+          title={'NExT Sudoku'}
+          description={"A modern take on the classic Sudoku puzzle, featuring a puzzle generation algorithm that creates unique puzzles for endless gameplay."}
+          imageUrl={"/next-sudoku.svg"}
+          link={"https://next-sudoku-web.vercel.app"}
+          number={2}
+        />
+      </LazySection>
+      <LazySection id="project3">
+        <Project
+          title={'SEATUDY'}
+          description={"An online learning platform that is designed to enhance the learning experience through materials and resources tailored to individual student needs."}
+          imageUrl={"/seatudy.svg"}
+          link={"https://seatudy-real.vercel.app"}
+          number={3}
+        />
+      </LazySection>
+      <LazySection id="experience">
+        <Experience />
+      </LazySection>
+      <LazySection id="contact">
+        <ContactSection />
+      </LazySection>
     </main>
   );
 }

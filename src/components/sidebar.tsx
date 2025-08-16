@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export const SideBar = () => {
   return (
-    <nav className="fixed top-10 left-10 h-full w-16 bg-transparent flex flex-col items-center justify-between z-[999]">
+    <nav className="fixed top-10 left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999]">
       <div className="flex flex-col items-center space-y-50">
         <Image
           src="/logo.svg"
@@ -14,7 +14,7 @@ export const SideBar = () => {
             if (window.location.pathname !== "/") {
               window.location.href = "/";
             }
-            handleScrollTo("")
+            handleScrollTo("#home")
           }}
           style={{ cursor: "pointer" }}
         />

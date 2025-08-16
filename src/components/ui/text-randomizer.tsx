@@ -26,7 +26,7 @@ export const TextRandomizerEffect = ({ words, className, placeholder = false, ca
         if (callback) {
           callback(step / words.length * 100);
         }
-      }, step * 50);
+      }, step * 60);
 
       timers.push(timer);
     }
