@@ -11,16 +11,16 @@ export const HomeSection = () => {
   const setOpacity = (opacity: number) => {
     setTechStackOpacity(opacity);
   };
-  
+
   return (
-    <div className="h-screen" id="home">
+    <div className="h-screen landscape:sm:scale-80 landscape:md:scale-100 portrait:scale-48" id="home">
       <div className="flex flex-col items-center justify-center h-full text-white text-4xl">
         <div className="space-y-4">
-          <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest text-white" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
+          <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest text-white text-5xl md:text-4xl" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
           <div className="min-w-[50rem]">
             <RoleAnimator />
           </div>
-          <TextGenerateEffect words={'"Full-stack & cross-platform development, built for performance and impact."'} className="tracking-widest text-lg text-cfgray" duration={0.2} delay={0.15} />
+          <TextGenerateEffect words={'"Full-stack & cross-platform development, built for performance and impact."'} className="tracking-widest text-md md:text-lg text-cfgray" duration={0.2} delay={0.15} />
           <TechStackSlider className="mt-10" style={{ opacity: techStackOpacity / 100 }} />
         </div>
       </div>

@@ -60,8 +60,6 @@ const RotateWords = ({
   const animateSecondTextEnter = !initialRender.current && secondWord[index] !== prevWords;
   const animateSecondTextExit = nextWords !== secondWord[index];
 
-  // translate X for second word exit: compare incoming first word length vs. current first word length
-  const translateXSecondTextExit = firstWord[nextIndex].length - firstWord[index].length;
 
   return (
     <div className="text-7xl font-medium tracking-wide leading-snug flex">

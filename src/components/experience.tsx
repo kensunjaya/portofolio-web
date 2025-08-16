@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ExperienceCard } from "./ui/experience-card";
 import { motion } from "framer-motion";
 
-
 type Card = {
   year: number;
   title: string;
@@ -92,13 +91,13 @@ export const Experience = () => {
   }, [cards]);
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center gap-20 font-primary">
-      <div className="text-4xl font-semibold">Experience & Awards</div>
-      <div className="flex items-center justify-center gap-20" id="experience">
+    <div className="flex flex-col min-h-screen items-center justify-center gap-10 xl:gap-20 font-primary">
+      <div className="text-2xl md:text-3xl lg:text-4xl font-semibold">Experience & Awards</div>
+      <div className={`flex items-center justify-center gap-10 xl:gap-20 landscape:flex-row portrait:flex-col`} id="experience">
         <div
           ref={scrollerRef}
           className="
-            flex flex-col
+            flex flex-col portrait:pl-4
             overflow-y-auto 
             max-h-[27rem]
             pr-2
@@ -137,7 +136,7 @@ export const Experience = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative w-[600px] h-[400px]"
+          className="relative w-[300px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[450px] lg:h-[320px] xl:w-[600px] xl:h-[400px] flex items-center justify-center overflow-hidden"
         >
           {cards.map((card, i) => (
             <Image

@@ -1,9 +1,11 @@
 import { handleScrollTo } from "@/lib/utilfunctions";
 import Image from "next/image"
+import { useTailwindBreakpoint } from "./hooks/breakpoint";
 
 export const SideBar = () => {
+  const { breakpoint } = useTailwindBreakpoint();
   return (
-    <nav className="fixed top-10 left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999]">
+    <nav className="fixed top-5 md:top-10 sm:left-5 md:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
       <div className="flex flex-col items-center space-y-50">
         <Image
           src="/logo.svg"
@@ -39,7 +41,7 @@ export const SideBar = () => {
           <span
             className="relative z-10 group-hover:text-secondary transition-colors duration-300"
           >
-            {label}
+            {breakpoint === 'xs' || breakpoint === 'sm' ? label.toUpperCase() : label}
           </span>
         </a>
           ))}

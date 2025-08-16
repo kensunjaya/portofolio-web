@@ -8,7 +8,7 @@ const CustomButton = ({ onClick, children, type="button", nofill=false, disabled
   };
   return (
     <button
-      className={`text-lg font-semibold rounded-md transition cursor-pointer min-w-[10rem] min-h-[3rem] relative overflow-hidden ${nofill ? "bg-transparent text-white hover:text-secondary" : "text-primary bg-secondary"}`}
+      className={`text-sm md:text-md lg:text-lg font-semibold rounded-md transition cursor-pointer min-w-[10rem] min-h-[3rem] relative overflow-hidden ${nofill ? "bg-transparent text-white hover:text-secondary" : "text-primary bg-secondary"}`}
       type={type}
       onClick={onClick}
       onMouseEnter={handleHover}

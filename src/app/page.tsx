@@ -11,16 +11,15 @@ import { HomeSection } from "@/components/home";
 import { LazySection } from "@/components/ui/lazy-section";
 import { ViewCVButton } from "@/components/ui/curriculum-vitae";
 import { SocialMediaLinks } from "@/components/ui/social-media";
+import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
 
 function Home() {
-  const [scrollPosition, setScrollPosition] = React.useState(0);
-
   const [scrollIconOpacity, setScrollIconOpacity] = React.useState(0);
   const handleScroll = () => {
-    setScrollPosition(window.scrollY);
     setScrollIconOpacity(100 - window.scrollY);
-    console.log("Scroll Position:", window.scrollY);
   };
+
+  const { breakpoint } = useTailwindBreakpoint();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -28,6 +27,7 @@ function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <main className="w-full min-h-screen overflow-hidden">
       <Spotlight />
@@ -62,6 +62,8 @@ function Home() {
           imageUrl={"/chroma-war.svg"}
           link={"https://chroma-war.vercel.app"}
           number={1}
+          breakpoint={breakpoint}
+          techstacks={['Next.js', 'TypeScript', 'Node.js', 'Express']}
         />
       </LazySection>
 
@@ -72,6 +74,8 @@ function Home() {
           imageUrl={"/next-sudoku.svg"}
           link={"https://next-sudoku-web.vercel.app"}
           number={2}
+          breakpoint={breakpoint}
+          techstacks={['Next.js', 'TypeScript', 'Node.js', 'AWS']}
         />
       </LazySection>
       <LazySection id="project3">
@@ -81,6 +85,8 @@ function Home() {
           imageUrl={"/seatudy.svg"}
           link={"https://seatudy-real.vercel.app"}
           number={3}
+          breakpoint={breakpoint}
+          techstacks={['Next.js', 'TypeScript', 'PostgreSQL', 'Express', 'Figma']}
         />
       </LazySection>
       <LazySection id="experience">

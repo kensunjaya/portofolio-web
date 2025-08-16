@@ -5,9 +5,12 @@ import { IoSend } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTailwindBreakpoint } from "./hooks/breakpoint";
 
 export const ContactSection = () => {
   const [openMessagePage, setOpenMessagePage] = useState(false);
+
+  const { breakpoint, orientation } = useTailwindBreakpoint();
 
   const router = useRouter();
 
@@ -20,30 +23,63 @@ export const ContactSection = () => {
   }, [openMessagePage]);
 
   return (
-    <div className={`flex flex-row items-center justify-center h-screen gap-20 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`} id="contact">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <Image 
-          src="/profile_enhanced.jpg"
-          alt="Your Image Description"
-          width={400}
-          height={500}
-        />
-      </motion.div>
-      <div className="flex flex-col max-w-[40rem]">
-        <TextRandomizerEffect className="text-5xl font-semibold" words={"Hello World!"} placeholder />
-        <p className="text-lg mb-8 text-cfgray mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>
-        <p className="text-lg mb-8 text-cfgray">{"Beyond just writing code, I enjoy exploring clean design, intuitive user experiences, and scalable architectures. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that's not only functional, but also meaningful."}</p>
-        <CustomButton onClick={() => setOpenMessagePage(true)}>
-          <div className="flex items-center justify-center gap-2">
-            <IoSend className="text-xl" />
-            <div>Send me a message</div>
+    <div className="min-h-screen flex items-center justify-center" id="contact">
+      {
+        orientation === 'landscape' ? (
+          <div className={`flex flex-row items-center justify-center gap-20 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`}>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Image 
+                src="/profile_enhanced.jpg"
+                alt="Your Image Description"
+                width={400}
+                height={500}
+              />
+            </motion.div>
+            <div className="flex flex-col max-w-[30rem] xl:max-w-[40rem]">
+              <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold" words={"Hello World!"} placeholder />
+              <p className="text-lg mb-8 text-cfgray mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>
+              <p className="text-lg mb-8 text-cfgray">{"Beyond just writing code, I enjoy exploring clean design, intuitive user experiences, and scalable architectures. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that's not only functional, but also meaningful."}</p>
+              <CustomButton onClick={() => setOpenMessagePage(true)}>
+                <div className="flex items-center justify-center gap-2">
+                  <IoSend className="text-xl" />
+                  <div>Send me a message</div>
+                </div>
+              </CustomButton>
+            </div>
           </div>
-        </CustomButton>
-      </div>
+        ) : (
+          <div className={`flex flex-col items-center justify-center gap-10 pr-10 pl-12 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`} id="contact">
+            <div className="flex flex-col max-w-[40rem]">
+              <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold" words={"Hello World!"} placeholder />
+              <p className="text-sm md:text-md lg:text-lg mb-8 text-cfgray mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>
+              <p className="text-sm md:text-md lg:text-lg mb-8 text-cfgray">{"Beyond just writing code, I enjoy exploring clean design, intuitive user experiences, and scalable architectures. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that's not only functional, but also meaningful."}</p>
+              <CustomButton onClick={() => setOpenMessagePage(true)}>
+                <div className="flex items-center justify-center gap-2">
+                  <IoSend className="text-xl" />
+                  <div>Send me a message</div>
+                </div>
+              </CustomButton>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="mb-15"
+            >
+              <Image 
+                src="/profile_enhanced.jpg"
+                alt="Your Image Description"
+                width={breakpoint === 'xs' || breakpoint === "sm" ? 300 : breakpoint === "md" ? 350 : breakpoint === 'lg' ? 400 : 500}
+                height={breakpoint === 'xs' || breakpoint === "sm" ? 400 : breakpoint === "md" ? 480 : breakpoint === 'lg' ? 540 : 600}
+              />
+            </motion.div>
+          </div>
+        )
+      }
     </div>
   );
 };
