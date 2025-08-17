@@ -60,6 +60,7 @@ function Home() {
           title={'Chroma War'}
           description={"A fast-paced two-player chain reaction strategy game. Challenge friends online or test your skills against a smart AI opponent!"}
           imageUrl={"/chroma-war.svg"}
+          logo={"/chroma_war_logo.png"}
           link={"https://chroma-war.vercel.app"}
           number={1}
           breakpoint={breakpoint}
@@ -72,6 +73,7 @@ function Home() {
           title={'NExT Sudoku'}
           description={"A modern take on the classic Sudoku puzzle, featuring a puzzle generation algorithm that creates unique puzzles for endless gameplay."}
           imageUrl={"/next-sudoku.svg"}
+          logo={"/next_sudoku_logo.png"}
           link={"https://next-sudoku-web.vercel.app"}
           number={2}
           breakpoint={breakpoint}
@@ -83,6 +85,7 @@ function Home() {
           title={'SEATUDY'}
           description={"An online learning platform that is designed to enhance the learning experience through materials and resources tailored to individual student needs."}
           imageUrl={"/seatudy.svg"}
+          logo={"/seatudy_logo.png"}
           link={"https://seatudy-real.vercel.app"}
           number={3}
           breakpoint={breakpoint}

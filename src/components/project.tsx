@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Breakpoint, TechStack } from "./interface/types";
 
-export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[] }) => {
+export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks, logo } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[], logo: string }) => {
   const techStackClasses: Record<TechStack, string> = {
     "React": "border-cyan-400 text-cyan-400",
     "Next.js": "border-indigo-300 text-indigo-300",
@@ -35,7 +35,10 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
             <span className="text-secondary mr-3">{"//"}</span>
             <span>{number}</span>
           </div>
-          <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold" words={title} placeholder={true} />
+          <div className="flex gap-5 items-center">
+            <Image src={logo} alt={title} width={50} height={50} />
+            <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold" words={title} placeholder={true} />
+          </div>
           <p className="text-xl md:text-2xl xl:text-3xl text-cfgray">{description}</p>
             <div className="flex flex-row flex-wrap gap-2">
             {techstacks.map((tech) => (
