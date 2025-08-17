@@ -18,6 +18,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
     "AWS": "border-yellow-400 text-yellow-400",
     "PostgreSQL": "border-pink-400 text-pink-400",
     "Figma": "border-purple-400 text-purple-400",
+    "Socket.io": "border-orange-400 text-orange-400"
   };
 
 
@@ -58,7 +59,8 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
             src={imageUrl} 
             alt={title} 
             width={breakpoint === 'xs' ? 300 : breakpoint === "sm" ? 350 : breakpoint === "md" ? 400 : breakpoint === "lg" ? 450 : 600} 
-            height={breakpoint === 'xs' ? 300 : breakpoint === "sm" ? 350 : breakpoint === "md" ? 400 : breakpoint === "lg" ? 450 : 600} 
+            height={0}
+            style={{ height: "auto" }}
             draggable={false} 
           />
         </div>

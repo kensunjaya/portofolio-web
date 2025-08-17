@@ -63,7 +63,7 @@ function Home() {
           link={"https://chroma-war.vercel.app"}
           number={1}
           breakpoint={breakpoint}
-          techstacks={['Next.js', 'TypeScript', 'Node.js', 'Express']}
+          techstacks={['Next.js', 'TypeScript', 'Node.js', 'Socket.io']}
         />
       </LazySection>
 

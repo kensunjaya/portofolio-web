@@ -34,9 +34,11 @@ export const ContactSection = () => {
             >
               <Image 
                 src="/profile_enhanced.jpg"
-                alt="Your Image Description"
+                alt="Kenneth Sunjaya"
+                draggable={false}
                 width={400}
-                height={500}
+                height={0}
+                style={{ height: "auto" }}
               />
             </motion.div>
             <div className="flex flex-col max-w-[30rem] xl:max-w-[40rem]">
@@ -72,9 +74,11 @@ export const ContactSection = () => {
             >
               <Image 
                 src="/profile_enhanced.jpg"
-                alt="Your Image Description"
+                alt="Kenneth Sunjaya"
+                draggable={false}
                 width={breakpoint === 'xs' || breakpoint === "sm" ? 300 : breakpoint === "md" ? 350 : breakpoint === 'lg' ? 400 : 500}
-                height={breakpoint === 'xs' || breakpoint === "sm" ? 400 : breakpoint === "md" ? 480 : breakpoint === 'lg' ? 540 : 600}
+                height={0}
+                style={{ height: "auto" }}
               />
             </motion.div>
           </div>
