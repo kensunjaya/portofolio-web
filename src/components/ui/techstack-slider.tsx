@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useTailwindBreakpoint } from "../hooks/breakpoint";
 
 export const TechStackSlider = ({ className, style }: { className?: string; style?: React.CSSProperties }) => {
-  const size = 40;
+  const { orientation } = useTailwindBreakpoint();
+
+  const [size, setSize] = useState(40);
   const gap = 20; // px for Tailwind's space-x-6
   const speed = 0.2; // px per frame
 
@@ -50,8 +53,17 @@ export const TechStackSlider = ({ className, style }: { className?: string; styl
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
+  useEffect(() => {
+    if (orientation === "landscape") {
+      setSize(40);
+    } else {
+      setSize(60);
+    }
+
+  }, [orientation]);
+
   return (
-    <div className={`overflow-hidden transition ${className}`} style={style}>
+    <div className={`overflow-hidden transition fade-mask-horizontal ${orientation === "landscape" ? "w-full" : "max-w-[48rem]"} ${className}`} style={style}>
       <div
         ref={containerRef}
         className="flex space-x-5 mx-5"

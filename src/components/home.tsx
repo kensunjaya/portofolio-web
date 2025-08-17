@@ -13,14 +13,14 @@ export const HomeSection = () => {
   };
 
   return (
-    <div className="h-screen landscape:sm:scale-80 landscape:md:scale-100 portrait:scale-48" id="home">
+    <div className="h-screen scale-42 landscape:sm:scale-80 landscape:md:scale-100 [@media(min-width:400px)]:portrait:scale-48  md:portrait:scale-62" id="home">
       <div className="flex flex-col items-center justify-center h-full text-white text-4xl">
         <div className="space-y-4">
           <TextRandomizerEffect words="KENNETH SUNJAYA" className="tracking-widest text-white text-5xl md:text-4xl" callback={(opacity: number) => { setOpacity(opacity); return opacity; }} />
           <div className="min-w-[50rem]">
             <RoleAnimator />
           </div>
-          <TextGenerateEffect words={'"Full-stack & cross-platform development, built for performance and impact."'} className="tracking-widest text-md md:text-lg text-cfgray" duration={0.2} delay={0.15} />
+          <TextGenerateEffect words={'"I build full-stack web and mobile applications with a focus on performance, scalability, and user experience."'} className="tracking-widest text-[32px] sm:text-md md:text-lg text-cfgray max-w-[50rem]" duration={0.2} delay={0.15} />
           <TechStackSlider className="mt-10" style={{ opacity: techStackOpacity / 100 }} />
         </div>
       </div>

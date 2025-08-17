@@ -29,12 +29,12 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
       className="h-screen" id={`project${number}`}
     >
       <div className={`flex landscape:flex-row portrait:flex-col items-center justify-center h-full gap-10`}>
-        <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[800px] portrait:pl-4">
+        <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[800px] portrait:px-4">
           <div className="font-bold text-xl select-none">
             <span className="text-secondary mr-3">{"//"}</span>
             <span>{number}</span>
           </div>
-          <TextRandomizerEffect className="text-5xl font-semibold" words={title} placeholder={true} />
+          <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold" words={title} placeholder={true} />
           <p className="text-xl md:text-2xl xl:text-3xl text-cfgray">{description}</p>
             <div className="flex flex-row flex-wrap gap-2">
             {techstacks.map((tech) => (
@@ -46,7 +46,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
               </div>
             ))}
             </div>
-          <CustomButton onClick={() => handleOpenUrl(link)}>
+          <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
             <div className="flex items-center justify-center gap-2">
               <span>View Project</span>
               <MdOutlineArrowOutward className="text-xl" />

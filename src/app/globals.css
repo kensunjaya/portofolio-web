@@ -29,6 +29,15 @@ body {
   mask-size: 100% 100%;
 }
 
+.fade-mask-horizontal {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .scrollbar-hidden::-webkit-scrollbar {

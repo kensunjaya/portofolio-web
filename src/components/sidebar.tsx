@@ -4,10 +4,10 @@ import { useTailwindBreakpoint } from "./hooks/breakpoint";
 import { usePathname } from "next/navigation";
 
 export const SideBar = () => {
-  const { breakpoint, orientation } = useTailwindBreakpoint();
+  const { orientation } = useTailwindBreakpoint();
   const pathname = usePathname();
   return (
-    <nav className="fixed top-5 md:top-10 sm:left-5 md:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
+    <nav className="fixed portrait:top-5 landscape:top-10 portrait:left-0 landscape:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
       <div className="flex flex-col items-center space-y-50">
         <Image
           src="/logo.svg"

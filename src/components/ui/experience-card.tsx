@@ -3,19 +3,21 @@ export const ExperienceCard = ({
   title,
   description,
   isActive,
+  className,
 
 }: {
   year: number;
   title: string;
   description: string;
   isActive: boolean;
+  className?: string;
 }) => {
 
   return (
     <div
       className={`
         flex gap-0 md:gap-4 xl:gap-8
-        transition-transform duration-300
+        transition-transform duration-300 ${className}
       `}
       style={{
         // Subtle scale/translate to make the centered card feel "focused"
@@ -30,8 +32,8 @@ export const ExperienceCard = ({
       </div>
 
       <div className="flex flex-col gap-6 max-w-[20rem] lg:max-w-[30rem] xl:max-w-[40rem]">
-        <div className="text-lg md:text-xl lg:text-3xl font-semibold">{title}</div>
-        <p className="text-md md:text-lg lg:text-xl text-cfgray leading-relaxed">{description}</p>
+        <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{title}</div>
+        <p className="text-sm sm:text-md md:text-lg xl:text-xl text-cfgray leading-relaxed">{description}</p>
       </div>
     </div>
   );

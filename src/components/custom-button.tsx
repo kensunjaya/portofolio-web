@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-const CustomButton = ({ onClick, children, type="button", nofill=false, disabled=false }: { onClick?: () => void; children: ReactNode; type?: "button" | "submit"; nofill?: boolean; disabled?: boolean }) => {
+const CustomButton = ({ onClick, children, type="button", nofill=false, disabled=false, className }: { onClick?: () => void; children: ReactNode; type?: "button" | "submit"; nofill?: boolean; disabled?: boolean; className?: string }) => {
   const [fillingWidth, setFillingWidth] = useState(0);
   const handleHover = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { width } = event.currentTarget.getBoundingClientRect();
@@ -8,7 +8,7 @@ const CustomButton = ({ onClick, children, type="button", nofill=false, disabled
   };
   return (
     <button
-      className={`text-sm md:text-md lg:text-lg font-semibold rounded-md transition cursor-pointer min-w-[10rem] min-h-[3rem] relative overflow-hidden ${nofill ? "bg-transparent text-white hover:text-secondary" : "text-primary bg-secondary"}`}
+      className={`text-sm md:text-md lg:text-lg font-semibold rounded-md transition cursor-pointer min-w-[10rem] min-h-[3rem] relative overflow-hidden ${nofill ? "bg-transparent text-white hover:text-secondary" : "text-primary bg-secondary"} ${className}`}
       type={type}
       onClick={onClick}
       onMouseEnter={handleHover}

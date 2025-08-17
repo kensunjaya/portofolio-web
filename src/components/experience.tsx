@@ -22,7 +22,7 @@ export const Experience = () => {
       year: 2024,
       title: "Software Engineering Academy Participant at COMPFEST 16",
       description:
-      "Selected as one of 20 individual participants among thousands of applicants in Indonesia. Participated in a 2-month software engineering bootcamp focused on Microservices, Clean Code, Clean Architecture, API, Design Patterns, CI/CD, and Security. Collaborated with a team of four to build Seatudy, an online learning platform.",
+      "Selected as one of 20 individual participants among thousands of applicants in Indonesia. Participated in a 2-month software engineering bootcamp focused on Microservices, Clean Code, Clean Architecture, API, Design Patterns, CI/CD, and Security. Collaborated with a team of four to build Seatudy.",
       thumbnail: "/best-team-compfest.JPG",
     },
     {
@@ -91,12 +91,12 @@ export const Experience = () => {
   }, [cards]);
 
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center gap-10 xl:gap-20 font-primary">
+    <div className="flex flex-col min-h-screen items-center justify-center gap-5 md:gap-10 xl:gap-20 font-primary">
       <div className="text-2xl md:text-3xl lg:text-4xl font-semibold">Experience & Awards</div>
-      <div className={`flex items-center justify-center gap-10 xl:gap-20 landscape:flex-row portrait:flex-col`} id="experience">
+      <div className={`flex items-center justify-center gap-5 xl:gap-20 landscape:flex-row portrait:flex-col`} id="experience">
         <div
           ref={scrollerRef}
-          className="
+          className={`
             flex flex-col portrait:pl-4
             overflow-y-auto 
             max-h-[27rem]
@@ -104,8 +104,7 @@ export const Experience = () => {
             snap-y snap-mandatory 
             fade-mask
             scrollbar-hidden
-          "
-        >
+          `}>
           {cards.map((c, i) => (
             <div
               key={i}
@@ -116,7 +115,7 @@ export const Experience = () => {
                 snap-center
                 transition-opacity duration-300
                 will-change-[opacity,transform]
-                ${i === 0 ? "pt-[1.5vh]" : i === cards.length - 1 ? "pb-[1.5vh]" : "py-10"}
+                ${i === 0 ? "pt-[1.5vh]" : i === cards.length - 1 ? "pb-[1.5vh]" : "py-5 lg:py-8 xl:py-10"}
                 items-center
               `}
               style={{ opacity: activeIndex === i ? 1 : 0.3 }}
@@ -127,6 +126,7 @@ export const Experience = () => {
                 title={c.title}
                 description={c.description}
                 isActive={activeIndex === i}
+                className={i === 0 ? "pt-5" : i === cards.length - 1 ? "pb-5" : ""}
               />
             </div>
           ))}
