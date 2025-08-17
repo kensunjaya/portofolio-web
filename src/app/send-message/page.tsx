@@ -68,7 +68,7 @@ const SendMessagePage = () => {
   };
 
   return (
-    <main className="w-full min-h-screen overflow-hidden">
+    <main className="w-full h-fit overflow-hidden">
       <Spotlight />
       <SocialMediaLinks />
       <ViewCVButton />
