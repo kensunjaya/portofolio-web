@@ -12,6 +12,8 @@ import { Slide, toast } from "react-toastify";
 
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
+import { SocialMediaLinks } from "@/components/ui/social-media";
+import { ViewCVButton } from "@/components/ui/curriculum-vitae";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -68,6 +70,8 @@ const SendMessagePage = () => {
   return (
     <main className="w-full min-h-screen overflow-hidden">
       <Spotlight />
+      <SocialMediaLinks />
+      <ViewCVButton />
       <SideBar />
       <div className="flex flex-col items-center justify-center h-screen">
         <motion.div
