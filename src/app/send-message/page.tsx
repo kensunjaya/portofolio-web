@@ -8,8 +8,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Slide, toast } from 'react-toastify';
-
+import { Slide, toast } from "react-toastify";
 
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
@@ -44,98 +43,103 @@ const SendMessagePage = () => {
 
       await emailjs.send(serviceID, templateID, data, userID);
       reset();
-      toast.success('Thank you for your message! We will get back to you soon.', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark",
-        transition: Slide,
-      });
+      toast.success(
+        "Thank you for your message! We will get back to you soon.",
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+          transition: Slide,
+        }
+      );
       setTimeout(() => {
         router.push("/");
       }, 200);
     } catch (error) {
-      console.error("❌ Failed to send message:", error);
-      toast.error("❌ Failed to send message. Please try again.");
+      console.error("Failed to send message:", error);
+      toast.error("Oops, something went wrong. Please try again.");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <main className="w-full min-h-screen overflow-hidden">
       <Spotlight />
       <SideBar />
+      <div className="flex flex-col items-center justify-center h-screen">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full max-w-xl px-6"
+        >
+          <TextRandomizerEffect
+            words="Send me a Message"
+            className="text-3xl font-semibold mb-10"
+            placeholder
+          />
 
-      {/* Slide-up animation wrapper */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-xl px-6"
-      >
-        <TextRandomizerEffect
-          words="Send me a Message"
-          className="text-3xl font-semibold mb-10"
-          placeholder
-        />
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            {/* Name */}
+            <div>
+              <input
+                type="text"
+                placeholder="Your name"
+                aria-label="Your name"
+                {...register("name")}
+                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+              />
+              {errors.name && (
+                <p className="text-orange-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          {/* Name */}
-          <div>
-            <input
-              type="text"
-              placeholder="Your name"
-              aria-label="Your name"
-              {...register("name")}
-              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-            )}
-          </div>
-
-          {/* Email */}
-          <div>
-            <input
-              type="email"
-              placeholder="Your email"
-              aria-label="Your email"
-              {...register("email")}
-              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-            )}
-          </div>
-
-          {/* Message */}
-          <div>
-            <textarea
-              placeholder="Your message"
-              aria-label="Your message"
-              rows={5}
-              {...register("message")}
-              className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
-            />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-            )}
-          </div>
-
-          {/* Submit */}
-          <div className="pt-2">
-            <CustomButton type="submit" disabled={isSubmitting}>
-              <div className="flex items-center justify-center gap-2">
-                <IoSend className="text-xl" />
-                <div>{isSubmitting ? "Sending..." : "Send"}</div>
-              </div>
-            </CustomButton>
-          </div>
-        </form>
-      </motion.div>
-    </div>
+            {/* Email */}
+            <div>
+              <input
+                type="email"
+                placeholder="Your email"
+                aria-label="Your email"
+                {...register("email")}
+                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+              />
+              {errors.email && (
+                <p className="text-orange-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <textarea
+                placeholder="Your message"
+                aria-label="Your message"
+                rows={5}
+                {...register("message")}
+                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+            <div className="pt-2">
+              <CustomButton type="submit" disabled={isSubmitting}>
+                <div className="flex items-center justify-center gap-2">
+                  <IoSend className="text-xl" />
+                  <div>{isSubmitting ? "Sending..." : "Send"}</div>
+                </div>
+              </CustomButton>
+            </div>
+          </form>
+        </motion.div>
+      </div>
+    </main>
   );
 };
 

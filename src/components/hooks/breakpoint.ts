@@ -16,7 +16,7 @@ export const  getTailwindBreakpoint = () : {breakpoint: Breakpoint, orientation:
 
 
 export function useTailwindBreakpoint(): {breakpoint: Breakpoint, orientation: Orientation} {
-  const [breakpoint, setBreakpoint] = useState<{breakpoint: Breakpoint, orientation: Orientation}>({breakpoint: 'xs', orientation: 'landscape'});
+  const [breakpoint, setBreakpoint] = useState<{breakpoint: Breakpoint, orientation: Orientation}>({breakpoint: 'lg', orientation: 'landscape'});
 
   useEffect(() => {
     const updateBreakpoint = () => {

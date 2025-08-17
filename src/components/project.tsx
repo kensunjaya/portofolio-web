@@ -10,7 +10,7 @@ import { Breakpoint, TechStack } from "./interface/types";
 export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[] }) => {
   const techStackClasses: Record<TechStack, string> = {
     "React": "border-cyan-400 text-cyan-400",
-    "Next.js": "border-indigo-400 text-indigo-400",
+    "Next.js": "border-indigo-300 text-indigo-300",
     "TypeScript": "border-blue-400 text-blue-400",
     "Node.js": "border-emerald-400 text-emerald-400",
     "Express": "border-gray-400 text-gray-400",
