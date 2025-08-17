@@ -23,7 +23,7 @@ export const Experience = () => {
       title: "Software Engineering Academy Participant at COMPFEST 16",
       description:
       "Selected as one of 20 individual participants among thousands of applicants in Indonesia. Participated in a 2-month software engineering bootcamp focused on Microservices, Clean Code, Clean Architecture, API, Design Patterns, CI/CD, and Security. Collaborated with a team of four to build Seatudy.",
-      thumbnail: "/best-team-compfest.JPG",
+      thumbnail: "/best-team-compfest.jpg",
     },
     {
       year: 2024,

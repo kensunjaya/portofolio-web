@@ -24,8 +24,8 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}  
+      initial={{ opacity: 0, x: number % 2 === 0 ? 50 : -50 }}
+      animate={{ opacity: 1, x: 0 }}  
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="h-screen" id={`project${number}`}
     >
@@ -37,7 +37,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
           </div>
           <div className="flex gap-5 items-center">
             <Image src={logo} alt={title} width={50} height={50} />
-            <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold" words={title} placeholder={true} />
+            <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
           </div>
           <p className="text-xl md:text-2xl xl:text-3xl text-cfgray">{description}</p>
             <div className="flex flex-row flex-wrap gap-2">
@@ -51,9 +51,9 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
             ))}
             </div>
           <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
-            <div className="flex items-center justify-center gap-2">
-              <span>View Project</span>
+            <div className="flex items-center justify-center gap-2 font-semibold">
               <MdOutlineArrowOutward className="text-xl" />
+              <span>View Project</span>
             </div>
           </CustomButton>
         </div>

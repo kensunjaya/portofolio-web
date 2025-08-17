@@ -7,8 +7,8 @@ export const SideBar = () => {
   const { orientation } = useTailwindBreakpoint();
   const pathname = usePathname();
   return (
-    <nav className="fixed portrait:top-5 landscape:top-10 portrait:left-0 landscape:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
-      <div className="flex flex-col items-center space-y-50">
+    <nav className="fixed portrait:top-5 text-cfgray landscape:top-10 portrait:left-0 landscape:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
+      <div className="flex flex-col items-center space-y-55">
         <Image
           src="/logo.svg"
           alt="Logo"
@@ -32,7 +32,7 @@ export const SideBar = () => {
               <a
                 key={label}
                 href={id}
-                className="relative text-white px-2 py-1 overflow-hidden group"
+                className="relative px-2 py-1 overflow-hidden group"
                 onClick={(e) => {
                   e.preventDefault();
                   if (window.location.pathname !== "/") {
