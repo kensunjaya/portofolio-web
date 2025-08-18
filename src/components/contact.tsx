@@ -41,7 +41,7 @@ export const ContactSection = () => {
                 style={{ height: "auto" }}
               />
             </motion.div>
-            <div className="flex flex-col max-w-[30rem] xl:max-w-[40rem]">
+            <div className="flex flex-col max-w-[350px] xl:max-w-[550px]">
               <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold" words={"Hello World!"} placeholder />
               <p className="text-lg mb-8 text-cfgray mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>
               <p className="text-lg mb-8 text-cfgray">{"Beyond just writing code, I enjoy exploring clean design, intuitive user experiences, and scalable architectures. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that's not only functional, but also meaningful."}</p>
@@ -55,7 +55,7 @@ export const ContactSection = () => {
           </div>
         ) : (
           <div className={`flex flex-col items-center justify-center gap-10 pr-10 pl-12 py-5 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`} id="contact">
-            <div className="flex flex-col max-w-[40rem]">
+            <div className="flex flex-col max-w-[350px] xl:max-w-[800px]">
               <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold" words={"Hello World!"} placeholder />
               <p className="text-sm md:text-md lg:text-lg mb-5 md:mb-8 text-cfgray mt-3 md:mt-5">{"I'm Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I'm deeply passionate about turning ideas into reality through code, and over the years I've built a diverse portfolio of projects spanning Front-end Development, Mobile App Development, and Back-end Development. Both as part of a team and independently."}</p>
               <p className="text-sm md:text-md lg:text-lg mb-5 md:mb-8 text-cfgray">{"Beyond just writing code, I enjoy exploring clean design, intuitive user experiences, and scalable architectures. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that's not only functional, but also meaningful."}</p>

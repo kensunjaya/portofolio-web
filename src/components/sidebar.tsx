@@ -7,8 +7,8 @@ export const SideBar = () => {
   const { orientation } = useTailwindBreakpoint();
   const pathname = usePathname();
   return (
-    <nav className="fixed portrait:top-5 text-cfgray landscape:top-10 portrait:left-0 landscape:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
-      <div className="flex flex-col items-center space-y-55">
+    <nav className="fixed top-5 text-cfgray md:top-10 left-0 md:left-5 lg:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
+      <div className="flex flex-col items-center space-y-45 sm:space-y-50 md:space-y-55">
         <Image
           src="/logo.svg"
           alt="Logo"
@@ -23,7 +23,7 @@ export const SideBar = () => {
           style={{ cursor: "pointer" }}
         />
         {((orientation === "landscape") || (orientation === "portrait" && pathname !== "/send-message")) && (
-          <div className="rotate-270 space-x-10">
+          <div className="rotate-270 space-x-5 sm:space-x-8 md:space-x-10">
             {[
               { label: "CONTACT", id: "#contact" },
               { label: "EXPERIENCE", id: "#experience" },
