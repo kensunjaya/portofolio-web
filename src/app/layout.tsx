@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Anonymous_Pro, Poppins } from "next/font/google";
 import { Slide, ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/next"
 import "react-toastify/dist/ReactToastify.css";
 
 const poppins = Poppins({
@@ -50,6 +51,7 @@ export default function RootLayout({
           toastStyle={{ fontFamily: 'var(--font-primary)' }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
