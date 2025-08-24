@@ -32,7 +32,7 @@ export default function ChromaWar() {
           <span className="ml-2">5 min read</span>
           <span className="ml-auto">12 June 2025</span>
         </div>
-        <hr className="py-2" />
+        <hr className="py-2 text-secondary" />
         <div className="flex flex-col text-justify gap-5 text-lg text-cfgray">
           <p>It all started one evening at my friend’s dorm. There were four of us hanging out when someone suggested playing a game on my iPad called <strong>“1 2 3 4 Player Games.”</strong> The game had dozens of fun mini-games, but we eventually stumbled upon one mode called <strong>Color Wars</strong>.</p>
           <p>Color Wars was a simple yet brilliant chain reaction strategy game where players took turns placing dots that could “burst” and take over their opponent’s territory. After a few rounds, I began to notice the pattern behind the mechanics. As someone who loves strategy games—especially ones that are easy to pick up but hard to master—I was instantly hooked. And then an idea struck me:</p>
@@ -85,11 +85,11 @@ export default function ChromaWar() {
           <p>What started as a casual gaming night with friends turned into one of my most exciting projects yet. Along the way, I learned about recursion, animations, AI algorithms, and real-time networking. But more than that, I discovered how a small spark of inspiration—born from laughter in a dorm could grow into a full-fledged strategy game that others can enjoy.</p>
         </div>
         <div className="flex mt-5 lg:mt-10">
-          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse">
+          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>
           </button>
-          <button onClick={() => navigator.push("/projects/next-sudoku")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto">
+          <button onClick={() => navigator.push("/projects/next-sudoku")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto hover:text-secondary">
             <FaAngleRight />
             <span className="ml-2">Next Article</span>
           </button>

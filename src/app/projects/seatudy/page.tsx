@@ -33,7 +33,7 @@ export default function Seatudy() {
           <span className="ml-2">5 min read</span>
           <span className="ml-auto">18 June 2024</span>
         </div>
-        <hr className="py-2" />
+        <hr className="py-2 text-secondary" />
         <div className="flex flex-col text-justify gap-5 text-lg text-cfgray">
           <p>It was a quiet morning during my 2nd semester break. While scrolling through Instagram, I stumbled upon a post promoting the <strong>Software Engineering Academy by COMPFEST</strong>. It is the largest annual technology event in Indonesia, organized by University of Indonesia (UI).</p>
           <p>I was immediately interested. The Academy promised <strong>two months of intensive learning about software engineering best practices</strong>. But first, there was a recruitment challenge: build a full-stack online appointment platform for a fictional salon called <Link href="https://kensunjaya.github.io/SEA-Salon/" target="_blank" className="text-blue-300 underline">SEA Salon</Link>.</p>
@@ -92,11 +92,11 @@ export default function Seatudy() {
           <p>The SEATUDY journey was more than just building an online learning platform. It was about teamwork, problem-solving, and growth. From sleepless nights debugging to standing proudly on stage at COMPFEST, the experience taught me how to collaborate effectively, think architecturally, and deliver under pressure. It was one of the most transformative experiences of my academic life—and SEATUDY will always be a reminder of the power of teamwork and perseverance.</p>
         </div>
         <div className="flex mt-5 lg:mt-10">
-          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse">
+          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>
           </button>
-          <button onClick={() => navigator.push("/projects/chroma-war")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto">
+          <button onClick={() => navigator.push("/projects/chroma-war")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto hover:text-secondary">
             <FaAngleRight />
             <span className="ml-2">Next Article</span>
           </button>

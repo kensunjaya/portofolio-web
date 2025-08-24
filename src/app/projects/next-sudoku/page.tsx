@@ -32,7 +32,7 @@ export default function NextSudoku() {
           <span className="ml-2">4 min read</span>
           <span className="ml-auto">06 November 2023</span>
         </div>
-        <hr className="py-2" />
+        <hr className="py-2 text-secondary" />
         <div className="flex flex-col text-justify gap-5 text-lg text-cfgray">
           <p>I’ve always enjoyed brain-teasing games, and Sudoku has been one of my favorites to play in my leisure time. Back in November 2023, during my first semester, my lecturer gave us a final project: <strong><i>“Create a game in C that runs on the command line interface.”</i></strong></p>
           <p>Immediately, I knew what I wanted to build... A Sudoku game! It seemed simple enough, and I thought I could finish it in just a few days. I started by writing a program that could print a 9×9 grid, complete with borders separating each 3×3 block. That part was straightforward.</p>
@@ -79,11 +79,11 @@ export default function NextSudoku() {
           <p>That project is now called <Link href="https://next-sudoku-web.vercel.app/" target="_blank" className="text-blue-300 underline">NExT Sudoku</Link>, a nod to both its Next.js foundation and the idea of taking Sudoku to the next level.</p>
         </div>
         <div className="flex mt-5 lg:mt-10">
-          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse">
+          <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>
           </button>
-          <button onClick={() => navigator.push("/projects/seatudy")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto">
+          <button onClick={() => navigator.push("/projects/seatudy")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer ml-auto hover:text-secondary">
             <FaAngleRight />
             <span className="ml-2">Next Article</span>
           </button>
