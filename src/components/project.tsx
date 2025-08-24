@@ -64,7 +64,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
                 <CustomButton onClick={() => navigator.push(project_story_path)} className="portrait:w-full landscape:ml-10 portrait:mt-5" backgroundColor="bg-[#DEE791]" fillColor="bg-[#FED16A]">
                   <div className="flex items-center justify-center gap-2 font-semibold">
                     <MdOutlineStickyNote2 className="text-xl" />
-                    <span>Read full Story</span>
+                    <span>Read Full Story</span>
                   </div>
                 </CustomButton>
               )
