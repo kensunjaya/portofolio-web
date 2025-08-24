@@ -88,7 +88,7 @@ function Home() {
           description={"An online learning platform that is designed to enhance the learning experience through materials and resources tailored to individual student needs."}
           imageUrl={"/seatudy.png"}
           logo={"/seatudy_logo.png"}
-          link={"https://seatudy-real.vercel.app"}
+          link={"https://github.com/Filbert88/seatudy"}
           number={3}
           breakpoint={breakpoint}
           techstacks={['Next.js', 'TypeScript', 'PostgreSQL', 'Express', 'Figma']}
