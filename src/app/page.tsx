@@ -16,7 +16,7 @@ import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
 function Home() {
   const [scrollIconOpacity, setScrollIconOpacity] = React.useState(0);
   const handleScroll = () => {
-    setScrollIconOpacity(100 - window.scrollY);
+    setScrollIconOpacity(80 - window.scrollY);
   };
 
   const { breakpoint } = useTailwindBreakpoint();
@@ -35,13 +35,13 @@ function Home() {
       <ViewCVButton />
       <SideBar />
       {scrollIconOpacity > 0 && (
-        <div className="fixed w-full h-screen flex flex-col justify-end items-center bottom-20 space-y-3 transition duration-200" style={{ opacity: scrollIconOpacity / 100 }}>
-          <div className="select-none">Scroll</div>
+        <div className="fixed w-full h-screen flex flex-col justify-end items-center bottom-20 space-y-3 transition duration-200 z-99999" style={{ opacity: scrollIconOpacity / 100 }}>
+          <div className="select-none text-xs">Scroll</div>
           <Image
             src="/scroll.gif"
             alt="Scroll"
-            width={60}
-            height={60} 
+            width={50}
+            height={50} 
             className="cursor-n-resize"
             draggable={false}
             onClick={(e) => {
