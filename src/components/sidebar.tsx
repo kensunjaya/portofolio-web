@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 export const SideBar = () => {
   const { orientation } = useTailwindBreakpoint();
+  const project_pathnames = ["/projects/chroma-war", "/projects/seatudy", "/projects/next-sudoku"];
   const pathname = usePathname();
   return (
     <nav className="fixed top-5 text-cfgray md:top-10 left-0 md:left-5 lg:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
@@ -22,7 +23,7 @@ export const SideBar = () => {
           }}
           style={{ cursor: "pointer" }}
         />
-        {((orientation === "landscape") || (orientation === "portrait" && pathname !== "/send-message")) && (
+        {(((orientation === "landscape") || (orientation === "portrait" && pathname !== "/send-message")) && !(orientation === "portrait" && project_pathnames.includes(pathname))) && (
           <div className="rotate-270 space-x-5 sm:space-x-8 md:space-x-10">
             {[
               { label: "CONTACT", id: "#contact" },
@@ -36,7 +37,7 @@ export const SideBar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   if (window.location.pathname !== "/") {
-                    window.location.href = "/";
+                    window.location.href = "/" + id;
                   }
                   handleScrollTo(id);
                 }}

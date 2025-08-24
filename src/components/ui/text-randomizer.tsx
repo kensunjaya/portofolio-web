@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useState } from "react";
 
-export const TextRandomizerEffect = ({ words, className, placeholder = false, callback }: { words: string; className?: string; placeholder?: boolean; callback?: (arg0: number) => number }) => {
+export const TextRandomizerEffect = ({ words, className, placeholder = false, callback, delay = 60 }: { words: string; className?: string; placeholder?: boolean; callback?: (arg0: number) => number; delay?: number }) => {
   const [displayedWords, setDisplayedWords] = useState(placeholder ? "\u00A0".repeat(words.length) : "");
 
   useEffect(() => {
@@ -26,12 +26,10 @@ export const TextRandomizerEffect = ({ words, className, placeholder = false, ca
         if (callback) {
           callback(step / words.length * 100);
         }
-      }, step * 60);
+      }, step * delay);
 
       timers.push(timer);
     }
-
-    
 
     return () => {
       timers.forEach(clearTimeout);

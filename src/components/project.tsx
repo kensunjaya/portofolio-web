@@ -1,13 +1,14 @@
 import { handleOpenUrl } from "@/lib/utilfunctions";
 import CustomButton from "./custom-button";
 import { TextRandomizerEffect } from "./ui/text-randomizer";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import { MdOutlineArrowOutward, MdOutlineStickyNote2 } from "react-icons/md";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
 import { Breakpoint, TechStack } from "./interface/types";
+import { useRouter } from "next/navigation";
 
-export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks, logo } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[], logo: string }) => {
+export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks, logo, project_story_path } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[], logo: string, project_story_path?: string }) => {
   const techStackClasses: Record<TechStack, string> = {
     "React": "border-cyan-400 text-cyan-400",
     "Next.js": "border-indigo-300 text-indigo-300",
@@ -21,6 +22,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
     "Socket.io": "border-orange-400 text-orange-400"
   };
 
+  const navigator = useRouter();
 
   return (
     <motion.div 
@@ -39,8 +41,8 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
             <Image src={logo} alt={title} width={50} height={50} />
             <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
           </div>
-          <p className="text-xl md:text-2xl xl:text-3xl text-cfgray">{description}</p>
-            <div className="flex flex-row flex-wrap gap-2">
+          <span className="text-xl md:text-2xl xl:text-3xl text-cfgray leading-[1.5]">{description}</span>
+            <div className="flex flex-row flex-wrap gap-2 mt-10">
             {techstacks.map((tech) => (
               <div
                 key={tech}
@@ -50,12 +52,24 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
               </div>
             ))}
             </div>
-          <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
-            <div className="flex items-center justify-center gap-2 font-semibold">
-              <MdOutlineArrowOutward className="text-xl" />
-              <span>View Project</span>
-            </div>
-          </CustomButton>
+          <div className="flex portrait:flex-col">
+            <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
+              <div className="flex items-center justify-center gap-2 font-semibold">
+                <MdOutlineArrowOutward className="text-xl" />
+                <span>View Project</span>
+              </div>
+            </CustomButton>
+            {
+              project_story_path && (
+                <CustomButton onClick={() => navigator.push(project_story_path)} className="portrait:w-full landscape:ml-10 portrait:mt-5" backgroundColor="bg-[#DEE791]" fillColor="bg-[#FED16A]">
+                  <div className="flex items-center justify-center gap-2 font-semibold">
+                    <MdOutlineStickyNote2 className="text-xl" />
+                    <span>Read full Story</span>
+                  </div>
+                </CustomButton>
+              )
+            }
+          </div>
         </div>
         <div className="flex items-center justify-center select-none">
           <Image 

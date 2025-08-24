@@ -38,6 +38,15 @@ body {
   mask-size: 100% 100%;
 }
 
+strong {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+p {
+  line-height: 1.75;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .scrollbar-hidden::-webkit-scrollbar {

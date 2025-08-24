@@ -65,6 +65,7 @@ function Home() {
           number={1}
           breakpoint={breakpoint}
           techstacks={['Next.js', 'TypeScript', 'Node.js', 'Socket.io']}
+          project_story_path={"/projects/chroma-war"}
         />
       </LazySection>
 
@@ -78,6 +79,7 @@ function Home() {
           number={2}
           breakpoint={breakpoint}
           techstacks={['Next.js', 'TypeScript', 'Node.js', 'AWS']}
+          project_story_path={"/projects/next-sudoku"}
         />
       </LazySection>
       <LazySection id="project3">
@@ -90,6 +92,7 @@ function Home() {
           number={3}
           breakpoint={breakpoint}
           techstacks={['Next.js', 'TypeScript', 'PostgreSQL', 'Express', 'Figma']}
+          project_story_path={"/projects/seatudy"}  
         />
       </LazySection>
       <LazySection id="experience">
