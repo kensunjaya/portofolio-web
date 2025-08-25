@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kennethsunjaya.com
+
+# Sitemaps
+Sitemap: https://kennethsunjaya.com/sitemap.xml
