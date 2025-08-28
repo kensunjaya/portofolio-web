@@ -23,6 +23,7 @@ function Home() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -35,7 +36,7 @@ function Home() {
       <ViewCVButton />
       <SideBar />
       {scrollIconOpacity > 0 && (
-        <div className="fixed w-full h-screen flex flex-col justify-end items-center bottom-20 space-y-3 transition duration-200 z-99999" style={{ opacity: scrollIconOpacity / 100 }}>
+        <div className="fixed flex flex-col justify-end items-center bottom-20 left-0 right-0 space-y-3 transition duration-200 z-999" style={{ opacity: scrollIconOpacity / 100 }}>
           <div className="select-none text-xs">Scroll</div>
           <Image
             src="/scroll.gif"

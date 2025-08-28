@@ -15,7 +15,7 @@ export const RoleAnimator = () => {
 
   if (index === 0) {
     return (
-      <TextGenerateEffect words="Software Engineer." className="text-7xl select-none text-white" />
+      <TextGenerateEffect words="Software Engineer." className="text-7xl text-white" />
     );
   } else {
     return (
