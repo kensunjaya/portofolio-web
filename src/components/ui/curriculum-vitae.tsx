@@ -5,7 +5,7 @@ export const ViewCVButton = () => {
   return (
     <div className="fixed top-3 md:top-10 right-0 md:right-10 w-fit h-fit z-1000 text-cfgray">
       <CustomButton
-        onClick={() => window.open("https://drive.google.com/file/d/1MVwczcCb4pUQ5sZVUsbPPdwmEgFIFVFc/view?usp=sharing", "_blank")}
+        onClick={() => window.open("https://drive.google.com/file/d/1UhFxylnWzU-pWdxl0PYtkliNQDfwuCCs/view?usp=sharing", "_blank")}
         nofill
         className="font-normal"
       >
