@@ -23,7 +23,7 @@ export const Experience = () => {
       title: "Software Engineering Academy Participant at COMPFEST 16",
       description:
       "Selected as one of 20 individual participants among thousands of applicants in Indonesia. Participated in a 2-month software engineering bootcamp focused on Microservices, Clean Code, Clean Architecture, API, Design Patterns, CI/CD, and Security. Collaborated with a team of four to build Seatudy.",
-      thumbnail: "/best-team-compfest.JPG",
+      thumbnail: "/best-team-compfest.webp",
     },
     {
       year: 2024,
@@ -44,7 +44,7 @@ export const Experience = () => {
       title: "Top 10 Finalist of DOW Heroes of Innovation Program",
       description:
         "Achieved 6th position in the DOW Heroes of Innovation Program 2025 with a team project developing ReBio, an IoT-powered eco-enzyme monitoring system. The solution enables real-time tracking of eco-enzyme quality and conditions through a mobile application.",
-      thumbnail: "/rebio-go-certificate.jpg",
+      thumbnail: "/rebio-go-certificate.webp",
     }
   ]), []);
 

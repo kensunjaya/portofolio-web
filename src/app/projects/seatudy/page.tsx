@@ -75,7 +75,7 @@ export default function Seatudy() {
           <p>We barely slept for those last two days, debugging and fixing issues nonstop. By the morning of the deadline, we were exhausted, but SEATUDY was ready.</p>
           <p>On presentation day, everything came together. We deployed the frontend on Vercel, the backend and database on Aiven, and <Link href="https://drive.google.com/file/d/1lzcoztaus4hk5dPZLngFIRMratDwJKrR/view?usp=sharing" target="_blank" className="text-blue-300 underline">showcased</Link> the platform to the jury. The response was overwhelmingly positive. They were especially impressed by our UI/UX design and how well we executed under pressure.</p>
           <div className="flex flex-col h-fit items-center">
-            <Image src="/online-pitching.jpg" alt="Online Pitching of SEATUDY" width={800} height={0} />
+            <Image src="/online-pitching.webp" alt="Online Pitching of SEATUDY" width={800} height={0} />
             <p className="text-center text-sm mt-3">The Presentation of SEATUDY Held Online</p>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function Seatudy() {
           <p>After several brainstorming sessions, we came up with <Link href="https://drive.google.com/file/d/1EPV72UQob9s_dqTMMIG-OYO_tFSSRwqK/view?usp=sharing" target="_blank" className="text-blue-300 underline">ABILILINK</Link>, a platform that connects people with disabilities to job opportunities. Beyond job listings, the platform would also provide access to essential courses to help users upskill. I contributed by creating the use case diagrams and system design for the application.</p>
           <p>At the COMPFEST 16 Graduation Night, held at University of Indonesia’s Faculty of Computer Science, we presented ABILILINK to the jury. To our delight, the project received strong appreciation, and when it was time to announce the winner, our team was named Best Case Study Team. Walking up to the stage with my teammates to receive our certificates and take photos was a moment I’ll never forget.</p>
           <div className="flex flex-col h-fit items-center">
-            <Image src="/compfest-graduation-night.jpg" alt="Graduation Night" width={800} height={0} />
+            <Image src="/compfest-graduation-night.webp" alt="Graduation Night" width={800} height={0} />
             <p className="text-center text-sm mt-3">The Pitching of ABILILINK at University of Indonesia</p>
           </div>
           <p>The SEATUDY journey was more than just building an online learning platform. It was about teamwork, problem-solving, and growth. From sleepless nights debugging to standing proudly on stage at COMPFEST, the experience taught me how to collaborate effectively, think architecturally, and deliver under pressure. It was one of the most transformative experiences of my academic life—and SEATUDY will always be a reminder of the power of teamwork and perseverance.</p>

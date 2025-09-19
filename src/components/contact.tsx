@@ -33,7 +33,7 @@ export const ContactSection = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <Image 
-                src="/profile_enhanced.jpg"
+                src="/profile_enhanced.webp"
                 alt="Kenneth Sunjaya"
                 draggable={false}
                 width={400}
@@ -73,7 +73,7 @@ export const ContactSection = () => {
               className="mb-10"
             >
               <Image 
-                src="/profile_enhanced.jpg"
+                src="/profile_enhanced.webp"
                 alt="Kenneth Sunjaya"
                 draggable={false}
                 width={breakpoint === 'xs' || breakpoint === "sm" ? 300 : breakpoint === "md" ? 350 : breakpoint === 'lg' ? 400 : 500}
