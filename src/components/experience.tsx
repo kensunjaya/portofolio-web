@@ -30,14 +30,14 @@ export const Experience = () => {
       title: "Awarded Best Team at COMPFEST 16",
       description:
       "My team won the Best Team award at COMPFEST 16 Graduation Night, recognized for our outstanding project ABILILINK. An application that connects people with disability to job opportunities.",
-      thumbnail: "/best-case-study.png",
+      thumbnail: "/best-case-study.webp",
     },
     {
       year: 2025,
       title: "Front-End Development Class Mentor",
       description:
         "I mentored and delivered 13 online hands-on sessions covering front-end web development fundamentals. Taught topics including HTML, CSS, JavaScript, Git, Bootstrap, React, and Next.js, helping students build their own interactive web projects.",
-      thumbnail: "/mentor.png",
+      thumbnail: "/mentor.webp",
     },
     {
       year: 2025,
@@ -93,7 +93,7 @@ export const Experience = () => {
   return (
     <div className="flex flex-col min-h-screen items-center justify-center gap-5 md:gap-10 xl:gap-20 font-primary">
       <div className="text-2xl md:text-3xl lg:text-4xl font-semibold">Experience & Awards</div>
-      <div className={`flex items-center justify-center gap-5 xl:gap-20 landscape:flex-row portrait:flex-col`} id="experience">
+      <div className={`flex items-center justify-center gap-5 xl:gap-15 landscape:flex-row portrait:flex-col`} id="experience">
         <div
           ref={scrollerRef}
           className={`
@@ -136,7 +136,7 @@ export const Experience = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative w-[300px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[450px] lg:h-[320px] xl:w-[600px] xl:h-[400px] flex items-center justify-center overflow-hidden"
+          className="relative w-[300px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[450px] lg:h-[320px] xl:w-[550px] xl:h-[360px] flex items-center justify-center overflow-hidden"
         >
           {cards.map((card, i) => (
             <Image

@@ -31,8 +31,8 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="h-screen" id={`project${number}`}
     >
-      <div className={`flex landscape:flex-row portrait:flex-col items-center justify-center h-full gap-10`}>
-        <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[800px] portrait:px-4">
+      <div className={`flex landscape:flex-row portrait:flex-col items-center justify-center h-full landscape:gap-5 portrait:gap-10`}>
+        <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[550px] portrait:px-4">
           <div className="font-bold text-xl select-none">
             <span className="text-secondary mr-3">{"//"}</span>
             <span>{number}</span>
@@ -41,7 +41,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
             <Image src={logo} alt={title} width={50} height={50} />
             <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
           </div>
-          <span className="text-xl md:text-2xl xl:text-3xl text-cfgray leading-[1.5]">{description}</span>
+          <span className="text-xl xl:text-2xl text-cfgray leading-[1.5]">{description}</span>
             <div className="flex flex-row flex-wrap gap-2 mt-10">
             {techstacks.map((tech) => (
               <div
@@ -75,7 +75,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
           <Image 
             src={imageUrl} 
             alt={title} 
-            width={breakpoint === 'xs' ? 300 : breakpoint === "sm" ? 350 : breakpoint === "md" ? 400 : breakpoint === "lg" ? 450 : 600} 
+            width={breakpoint === 'xs' ? 300 : breakpoint === "sm" ? 350 : breakpoint === "md" ? 400 : breakpoint === "lg" ? 450 : 500} 
             height={0}
             style={{ height: "auto" }}
             draggable={false} 
