@@ -9,7 +9,7 @@ export const ViewCVButton = () => {
         nofill
         className="font-normal"
       >
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-200">
           <MdOutlineOpenInNew />
           <span>Download CV</span>
         </div>

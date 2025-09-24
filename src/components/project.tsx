@@ -29,7 +29,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
       initial={{ opacity: 0, x: number % 2 === 0 ? 50 : -50 }}
       animate={{ opacity: 1, x: 0 }}  
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="h-screen" id={`project${number}`}
+      className="h-screen portrait:my-15 [@media(max-width:400px)]:portrait:pl-10 [@media(max-width:400px)]:portrait:pr-5" id={`project${number}`}
     >
       <div className={`flex landscape:flex-row portrait:flex-col items-center justify-center h-full landscape:gap-5 portrait:gap-10`}>
         <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[550px] portrait:px-4">
@@ -39,10 +39,10 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
           </div>
           <div className="flex gap-5 items-center">
             <Image src={logo} alt={title} width={50} height={50} />
-            <TextRandomizerEffect className="portrait:text-4xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
+            <TextRandomizerEffect className="portrait:text-3xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
           </div>
-          <span className="text-xl xl:text-2xl text-cfgray leading-[1.5]">{description}</span>
-            <div className="flex flex-row flex-wrap gap-2 mt-10">
+          <span className="text-lg md:text-xl xl:text-2xl text-cfgray leading-[1.5]">{description}</span>
+          <div className="flex flex-row flex-wrap gap-2 mt-10 text-sm md:text-md lg:text-lg">
             {techstacks.map((tech) => (
               <div
                 key={tech}
@@ -51,7 +51,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
                 {tech}
               </div>
             ))}
-            </div>
+          </div>
           <div className="flex portrait:flex-col">
             <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
               <div className="flex items-center justify-center gap-2 font-semibold">

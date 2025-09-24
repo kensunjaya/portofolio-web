@@ -13,10 +13,10 @@ import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
  
 export default function ChromaWar() {
   const navigator = useRouter();
-  const { orientation } = useTailwindBreakpoint();
+  const { breakpoint, orientation } = useTailwindBreakpoint();
   return (
     <div className="flex flex-col items-center w-full h-fit py-25 font-light">
-      <Spotlight />
+      <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'sm' ? 900 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SideBar />
       <motion.div 
         className="sm:w-fit p-5 lg:w-[850px]"

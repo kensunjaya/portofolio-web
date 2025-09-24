@@ -72,6 +72,10 @@ export const Experience = () => {
           const idx = Number((best!.target as HTMLElement).dataset.index);
           if (idx !== activeIndex) { // only update if it's actually different
             setActiveIndex(idx);
+            // const card = document.getElementById(`experience-card-${idx}`);
+            // if (card) {
+            //   card.scrollIntoView({ behavior: "smooth", block: "center" });
+            // } 
           }
         }
       },
@@ -91,31 +95,31 @@ export const Experience = () => {
   }, [cards]);
 
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center gap-5 md:gap-10 xl:gap-20 font-primary">
+    <div className="flex flex-col min-h-screen items-center justify-center gap-2 md:gap-10 xl:gap-20 font-primary [@media(max-width:400px)]:portrait:pl-10 [@media(max-width:400px)]:portrait:pr-5">
       <div className="text-2xl md:text-3xl lg:text-4xl font-semibold">Experience & Awards</div>
       <div className={`flex items-center justify-center gap-5 xl:gap-15 landscape:flex-row portrait:flex-col`} id="experience">
         <div
           ref={scrollerRef}
           className={`
-            flex flex-col portrait:pl-4
+            flex flex-col [@media(min-width:400px)]:portrait:pl-10
             overflow-y-auto 
             max-h-[27rem]
             pr-2
             snap-y snap-mandatory 
             fade-mask
-            scrollbar-hidden
           `}>
           {cards.map((c, i) => (
             <div
               key={i}
               data-card
               data-index={i}
+              id={`experience-card-${i}`}
               className={`
                 flex
                 snap-center
                 transition-opacity duration-300
                 will-change-[opacity,transform]
-                ${i === 0 ? "pt-[1.5vh]" : i === cards.length - 1 ? "pb-[1.5vh]" : "py-5 lg:py-8 xl:py-10"}
+                ${i === 0 ? "pt-[0vh]" : i === cards.length - 1 ? "pb-[1.5vh]" : "py-5 lg:py-8 xl:py-10"}
                 items-center
               `}
               style={{ opacity: activeIndex === i ? 1 : 0.3 }}

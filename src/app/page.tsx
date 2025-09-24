@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <main className="w-full min-h-screen overflow-hidden">
-      <Spotlight />
+      <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SocialMediaLinks />
       <ViewCVButton />
       <SideBar />
