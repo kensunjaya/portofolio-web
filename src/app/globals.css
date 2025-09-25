@@ -13,11 +13,18 @@
 
   --font-primary: var(--font-poppins);
   --font-mono: var(--font-anonymous-pro);
+  --font-inter: var(--font-inter);
+  --font-aldrich: var(--font-aldrich);
 }
 
 body {
   font-family: var(--font-primary);
   background-color: var(--color-primary);
+  scroll-behavior: smooth;
+}
+
+section {
+  font-family: var(--font-inter);
 }
 
 .fade-mask {

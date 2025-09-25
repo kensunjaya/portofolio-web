@@ -39,6 +39,18 @@ export const SideBar = () => {
                   if (window.location.pathname !== "/") {
                     window.location.href = "/" + id;
                   }
+                  if (id === "#project1") {
+                    const currentHash = window.location.hash;
+
+                    if (currentHash === "#project1") {
+                      handleScrollTo("#project2");
+                    } else if (currentHash === "#project2") {
+                      handleScrollTo("#project3");
+                    } else {
+                      handleScrollTo("#project1"); // default start
+                    }
+                    return;
+                  }
                   handleScrollTo(id);
                 }}
               >

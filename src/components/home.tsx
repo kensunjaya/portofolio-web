@@ -20,7 +20,7 @@ export const HomeSection = () => {
           <div className="min-w-[50rem]">
             <RoleAnimator />
           </div>
-          <TextGenerateEffect words={'"I build full-stack web and mobile applications with a focus on performance, scalability, and user experience."'} className="tracking-widest text-[32px] sm:text-md md:text-lg text-cfgray max-w-[50rem]" duration={0.2} delay={0.15} />
+          <TextGenerateEffect font="font-inter" words={'"I build full-stack web and mobile applications with a focus on performance, scalability, and user experience."'} className="tracking-widest text-[32px] sm:text-md md:text-lg text-cfgray max-w-[50rem]" duration={0.2} delay={0.15} />
           <TechStackSlider className="mt-10" style={{ opacity: techStackOpacity / 100 }} />
         </div>
       </div>

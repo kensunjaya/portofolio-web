@@ -1,6 +1,12 @@
 export const handleScrollTo = (id: string) => {
   const el = id ? document.querySelector(id) : document.body;
   el?.scrollIntoView({ behavior: "smooth" });
+  setTimeout(() => {
+    el?.scrollIntoView({ behavior: "smooth" });
+  }, 100);
+  if (id) {
+    window.history.replaceState(null, "", id);
+  }
 };
 
 export const handleOpenUrl = (url: string) => {

@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect } from "react";
 import { Spotlight } from "@/components/ui/spotlight";
-import Image from "next/image";
 import { SideBar } from "@/components/sidebar";
 import { handleScrollTo } from "@/lib/utilfunctions";
 import { Project } from "@/components/project";
@@ -12,6 +11,7 @@ import { LazySection } from "@/components/ui/lazy-section";
 import { ViewCVButton } from "@/components/ui/curriculum-vitae";
 import { SocialMediaLinks } from "@/components/ui/social-media";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
+import { FaAnglesDown } from "react-icons/fa6";
 
 function Home() {
   const [scrollIconOpacity, setScrollIconOpacity] = React.useState(0);
@@ -36,15 +36,10 @@ function Home() {
       <ViewCVButton />
       <SideBar />
       {scrollIconOpacity > 0 && (
-        <div className="fixed flex flex-col justify-end items-center bottom-20 left-0 right-0 space-y-3 transition duration-200 z-999" style={{ opacity: scrollIconOpacity / 100 }}>
+        <div className="fixed flex flex-col justify-end items-center bottom-[50px] left-0 right-0 space-y-3 transition duration-200 z-999" style={{ opacity: scrollIconOpacity / 100 }}>
           <div className="select-none text-xs">Scroll</div>
-          <Image
-            src="/scroll.gif"
-            alt="Scroll"
-            width={50}
-            height={50} 
-            className="cursor-n-resize"
-            draggable={false}
+          <FaAnglesDown
+            className="animate-pulse transition text-2xl cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
               handleScrollTo("#project1");

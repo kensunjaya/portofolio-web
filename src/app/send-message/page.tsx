@@ -86,7 +86,7 @@ const SendMessagePage = () => {
             placeholder
           />
 
-          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+          <form className="space-y-6 font-inter" onSubmit={handleSubmit(onSubmit)}>
             {/* Name */}
             <div>
               <input

@@ -34,7 +34,7 @@ export default function Seatudy() {
           <span className="ml-auto">18 June 2024</span>
         </div>
         <hr className="py-2 text-secondary" />
-        <div className="flex flex-col gap-5 text-lg text-cfgray">
+        <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>It was a quiet morning during my 2nd semester break. While scrolling through Instagram, I stumbled upon a post promoting the <strong>Software Engineering Academy by COMPFEST</strong>. It is the largest annual technology event in Indonesia, organized by University of Indonesia (UI).</p>
           <p>I was immediately interested. The Academy promised <strong>two months of intensive learning about software engineering best practices</strong>. But first, there was a recruitment challenge: build a full-stack online appointment platform for a fictional salon called <Link href="https://kensunjaya.github.io/SEA-Salon/" target="_blank" className="text-blue-300 underline">SEA Salon</Link>.</p>
           <p>The requirements were clear:</p>
@@ -49,9 +49,9 @@ export default function Seatudy() {
             <Image src="/sea-email.webp" alt="Email of Acceptance" width={600} height={0} />
             <p className="text-center text-sm mt-3">The Email of Acceptance (translated from Bahasa Indonesia to English)</p>
           </div>
-        </div>
+        </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Entering the Academy</h2>
-        <div className="flex flex-col gap-5 text-lg text-cfgray">
+        <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>The bootcamp kicked off with advanced topics: <strong>Microservices, Clean Code, Clean Architecture, APIs, Design Patterns, CI/CD, and Software Security</strong>. But beyond lectures, we were also assigned a hands-on project.</p>
           <p>In teams of four, each with a mentor, we were tasked with building an online learning platform called <Link href="https://seatudy-real.vercel.app/popular-courses" target="_blank" className="text-blue-300 underline">SEATUDY</Link>. The challenge was not just to code but to:</p>
           <ul className="list-disc space-y-2 ml-6">
@@ -62,9 +62,9 @@ export default function Seatudy() {
           </ul>
           <p>After dividing responsibilities, I was assigned as the Frontend Developer with additional minor backend tasks. We decided to build the frontend with <strong>Next.js</strong> and use <strong>PostgreSQL</strong> for structured user and course data. For media files (like course materials), we chose <strong>Cloudinary</strong> (free but limited). The database was hosted on <strong>Aiven</strong>.</p>
           <p>We followed the <strong>Agile framework</strong>, holding <strong>daily standups</strong> and <strong>evening engineering syncs</strong> at 8 PM. Communication was key. We constantly shared progress, blockers, and solutions.</p>
-        </div>
+        </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Developing SEATUDY</h2>
-        <div className="flex flex-col gap-5 text-lg text-cfgray">
+        <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>Development was challenging. APIs often didn’t behave as expected, database queries broke, and integrations sometimes failed. But every problem became an opportunity for collaboration. Each day, we tackled issues together, supporting one another to keep moving forward.</p>
           <p>Two days before the deadline, we began <strong>User Acceptance Testing (UAT)</strong>. That’s when disaster struck:</p>
           <ul className="list-disc space-y-2 ml-6">
@@ -78,9 +78,9 @@ export default function Seatudy() {
             <Image src="/online-pitching.webp" alt="Online Pitching of SEATUDY" width={800} height={0} />
             <p className="text-center text-sm mt-3">The Presentation of SEATUDY Held Online</p>
           </div>
-        </div>
+        </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Beyond SEATUDY</h2>
-        <div className="flex flex-col gap-5 text-lg text-cfgray">
+        <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>While SEATUDY was the highlight, the Academy journey wasn’t over yet. For the final stage, participants from different divisions: User Experience, Product Management, Data Science, and Software Engineering were grouped into cross-functional teams of ten.</p>
           <p>Our challenge: design a solution to help people with disabilities find meaningful employment. Unemployment rates for people with disabilities in Indonesia remain disproportionately high, and we were determined to build something impactful.</p>
           <p>After several brainstorming sessions, we came up with <Link href="https://drive.google.com/file/d/1EPV72UQob9s_dqTMMIG-OYO_tFSSRwqK/view?usp=sharing" target="_blank" className="text-blue-300 underline">ABILILINK</Link>, a platform that connects people with disabilities to job opportunities. Beyond job listings, the platform would also provide access to essential courses to help users upskill. I contributed by creating the use case diagrams and system design for the application.</p>
@@ -90,7 +90,7 @@ export default function Seatudy() {
             <p className="text-center text-sm mt-3">The Pitching of ABILILINK at University of Indonesia</p>
           </div>
           <p>The SEATUDY journey was more than just building an online learning platform. It was about teamwork, problem-solving, and growth. From sleepless nights debugging to standing proudly on stage at COMPFEST, the experience taught me how to collaborate effectively, think architecturally, and deliver under pressure. It was one of the most transformative experiences of my academic life—and SEATUDY will always be a reminder of the power of teamwork and perseverance.</p>
-        </div>
+        </section>
         <div className="flex mt-5 lg:mt-10">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />

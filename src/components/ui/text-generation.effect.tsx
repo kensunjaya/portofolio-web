@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
@@ -8,13 +9,15 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 1,
-  delay = 0.5
+  delay = 0.5,
+  font = "font-primary",
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
   delay?: number;
+  font?: string;
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
@@ -39,7 +42,7 @@ export const TextGenerateEffect = ({
           return (
             <motion.span
               key={word + idx}
-              className="opacity-0"
+              className={`opacity-0 ${font}`}
               style={{
                 filter: filter ? "blur(10px)" : "none",
               }}

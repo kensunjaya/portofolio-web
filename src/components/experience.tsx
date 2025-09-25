@@ -114,6 +114,14 @@ export const Experience = () => {
               data-card
               data-index={i}
               id={`experience-card-${i}`}
+              onClick={() => {
+                // scroll to the card when clicked
+                const card = document.getElementById(`experience-card-${i}`);
+                if (card) {
+                  card.scrollIntoView({ behavior: "smooth", block: "center" });
+                  setActiveIndex(i);
+                }
+              }}
               className={`
                 flex
                 snap-center
@@ -123,7 +131,6 @@ export const Experience = () => {
                 items-center
               `}
               style={{ opacity: activeIndex === i ? 1 : 0.3 }}
-              onClick={() => setActiveIndex(i)}
             >
               <ExperienceCard
                 year={c.year}
@@ -148,8 +155,16 @@ export const Experience = () => {
               src={card.thumbnail}
               alt={`Experience ${i}`}
               fill
+              onClick={() => {
+                const card = document.getElementById(`experience-card-${(activeIndex + 1) % cards.length}`);
+                if (card) {
+                  // disable scroll snap temporarily to allow smooth scrolling
+                  card.scrollIntoView({ behavior: "smooth", block: "center" });
+                  setActiveIndex((activeIndex + 1) % cards.length);
+                }
+              }}
               draggable={false}
-              className={`rounded-xl absolute inset-0 transition-opacity duration-500
+              className={`rounded-xl absolute inset-0 transition-opacity duration-500 cursor-pointer
                 ${i === activeIndex ? "opacity-100" : "opacity-0"}`}
             />
           ))}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Anonymous_Pro, Poppins } from "next/font/google";
+import { Anonymous_Pro, Inter, Poppins } from "next/font/google";
 import { Slide, ToastContainer } from "react-toastify";
 import { Analytics } from "@vercel/analytics/next"
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${anonymousPro.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${anonymousPro.variable} ${inter.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>

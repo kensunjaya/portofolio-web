@@ -33,7 +33,7 @@ export const ExperienceCard = ({
 
       <div className="flex flex-col gap-3 lg:gap-6 max-w-[20rem] lg:max-w-[30rem] xl:max-w-[35rem] pr-5">
         <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{title}</div>
-        <p className="text-sm sm:text-md md:text-lg xl:text-xl text-cfgray leading-relaxed">{description}</p>
+        <p className="text-sm sm:text-md md:text-lg xl:text-xl text-cfgray leading-relaxed font-inter">{description}</p>
       </div>
     </div>
   );
