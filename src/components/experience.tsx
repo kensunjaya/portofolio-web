@@ -115,10 +115,12 @@ export const Experience = () => {
               data-index={i}
               id={`experience-card-${i}`}
               onClick={() => {
-                // scroll to the card when clicked
                 const card = document.getElementById(`experience-card-${i}`);
-                if (card) {
-                  card.scrollIntoView({ behavior: "smooth", block: "center" });
+                if (scrollerRef.current && card) {
+                  scrollerRef.current.scrollTo({
+                    top: card.offsetTop - scrollerRef.current.offsetTop,
+                    behavior: "smooth",
+                  });
                   setActiveIndex(i);
                 }
               }}
@@ -156,13 +158,17 @@ export const Experience = () => {
               alt={`Experience ${i}`}
               fill
               onClick={() => {
-                const card = document.getElementById(`experience-card-${(activeIndex + 1) % cards.length}`);
-                if (card) {
-                  // disable scroll snap temporarily to allow smooth scrolling
-                  card.scrollIntoView({ behavior: "smooth", block: "center" });
-                  setActiveIndex((activeIndex + 1) % cards.length);
+                const nextIndex = (activeIndex + 1) % cards.length;
+                const card = document.getElementById(`experience-card-${nextIndex}`);
+                if (scrollerRef.current && card) {
+                  scrollerRef.current.scrollTo({
+                    top: card.offsetTop - scrollerRef.current.offsetTop,
+                    behavior: "smooth",
+                  });
+                  setActiveIndex(nextIndex);
                 }
               }}
+
               draggable={false}
               className={`rounded-xl absolute inset-0 transition-opacity duration-500 cursor-pointer
                 ${i === activeIndex ? "opacity-100" : "opacity-0"}`}

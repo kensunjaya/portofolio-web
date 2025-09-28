@@ -3,7 +3,7 @@ export const handleScrollTo = (id: string) => {
   el?.scrollIntoView({ behavior: "smooth" });
   setTimeout(() => {
     el?.scrollIntoView({ behavior: "smooth" });
-  }, 100);
+  }, 400);
   if (id) {
     window.history.replaceState(null, "", id);
   }
