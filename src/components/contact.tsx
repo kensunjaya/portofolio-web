@@ -35,7 +35,7 @@ export const ContactSection = () => {
               className="relative"
             >
               <motion.div 
-                className="absolute rotate-270 left-[-170px] top-[120px] italic text-6xl font-primary font-bold drop-shadow-[0_1.1px_1.1px_rgba(1,1,1,1)] select-none"
+                className="absolute rotate-270 left-[-170px] top-[120px] italic text-6xl font-primary font-bold drop-shadow-[0_1.1px_1.1px_rgba(1,1,1,1)] z-999"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
