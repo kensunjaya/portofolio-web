@@ -20,7 +20,12 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
     "AWS": "border-yellow-400 text-yellow-400",
     "PostgreSQL": "border-pink-400 text-pink-400",
     "Figma": "border-purple-400 text-purple-400",
-    "Socket.io": "border-orange-400 text-orange-400"
+    "Socket.io": "border-orange-400 text-orange-400",
+    "Firebase": "border-yellow-300 text-yellow-300",
+    "YOLOv11": "border-red-400 text-red-400",
+    "Flask": "border-gray-300 text-gray-300",
+    "GCP": "border-green-300 text-green-300",
+    "Gemini": "border-sky-400 text-sky-400",
   };
 
   const navigator = useRouter();
@@ -33,7 +38,7 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
       className="h-screen portrait:my-15 [@media(max-width:400px)]:portrait:pl-10 [@media(max-width:400px)]:portrait:pr-5" id={`project${number}`}
     >
       <div className={`flex landscape:flex-row portrait:flex-col items-center justify-center h-full landscape:gap-5 portrait:gap-10`}>
-        <div className="flex-col space-y-8 max-w-[350px] xl:max-w-[550px] portrait:px-4">
+        <div className="flex-col space-y-8 max-w-[350px] lg:max-w-[500px] xl:max-w-[550px] portrait:px-4">
           <div className="font-bold text-xl select-none">
             <span className="text-secondary mr-3">{"//"}</span>
             <span>{number}</span>

@@ -34,6 +34,13 @@ export const Experience = () => {
     },
     {
       year: 2025,
+      title: "3rd Place – AI Innovation Challenge 2025 at COMPFEST 17",
+      description:
+        "Achieved 3rd place out of 240+ teams at COMPFEST 17’s AI Innovation Challenge with 'HORUS AI'. An intelligent computer vision system that detects illegal parking in real time and notifies authorities for timely action.",
+      thumbnail: "/aic.webp",
+    },
+    {
+      year: 2025,
       title: "Front-End Development Class Mentor",
       description:
         "I mentored and delivered 13 online hands-on sessions covering front-end web development fundamentals. Taught topics including HTML, CSS, JavaScript, Git, Bootstrap, React, and Next.js, helping students build their own interactive web projects.",
@@ -48,14 +55,12 @@ export const Experience = () => {
     }
   ]), []);
 
-  // Observe which card is most centered/visible inside the scroller
   useEffect(() => {
     const root = scrollerRef.current;
     if (!root) return;
 
     const items = Array.from(root.querySelectorAll<HTMLElement>("[data-card]"));
 
-    // Fine-grained thresholds for smooth detection
     const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
 
     const io = new IntersectionObserver(
@@ -70,12 +75,8 @@ export const Experience = () => {
 
         if (best!.target) {
           const idx = Number((best!.target as HTMLElement).dataset.index);
-          if (idx !== activeIndex) { // only update if it's actually different
+          if (idx !== activeIndex) {
             setActiveIndex(idx);
-            // const card = document.getElementById(`experience-card-${idx}`);
-            // if (card) {
-            //   card.scrollIntoView({ behavior: "smooth", block: "center" });
-            // } 
           }
         }
       },
@@ -149,14 +150,15 @@ export const Experience = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="relative w-[300px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[450px] lg:h-[320px] xl:w-[550px] xl:h-[360px] flex items-center justify-center overflow-hidden"
+          className="relative w-[300px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[450px] lg:h-[300px] xl:w-[550px] xl:h-[360px] flex items-center justify-center overflow-hidden"
         >
           {cards.map((card, i) => (
             <Image
               key={i}
               src={card.thumbnail}
               alt={`Experience ${i}`}
-              fill
+              width={550}
+              height={0}
               onClick={() => {
                 const nextIndex = (activeIndex + 1) % cards.length;
                 const card = document.getElementById(`experience-card-${nextIndex}`);

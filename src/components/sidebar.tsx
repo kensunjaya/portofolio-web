@@ -51,6 +51,10 @@ export const SideBar = () => {
                     }
                     return;
                   }
+                  if (id === "#experience") {
+                    handleScrollTo(id, 800);
+                    return;
+                  }
                   handleScrollTo(id);
                 }}
               >
