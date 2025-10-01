@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export const SideBar = () => {
   const { orientation } = useTailwindBreakpoint();
-  const project_pathnames = ["/projects/chroma-war", "/projects/seatudy", "/projects/next-sudoku"];
+  const project_pathnames = ["/projects/chroma-war", "/projects/seatudy", "/projects/next-sudoku", "/projects/horus-ai"];
   const pathname = usePathname();
   return (
     <nav className="fixed top-5 text-cfgray md:top-10 left-0 md:left-5 lg:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
