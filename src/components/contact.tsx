@@ -13,6 +13,20 @@ export const ContactSection = () => {
 
   const { breakpoint, orientation } = useTailwindBreakpoint();
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -24,7 +38,7 @@ export const ContactSection = () => {
   }, [openMessagePage]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center" id="contact">
+    <div className="min-h-screen flex flex-col items-center justify-center" id="contact">
       {
         orientation === 'landscape' ? (
           <div className={`flex flex-row items-center justify-center gap-10 xl:gap-20 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`}>
@@ -35,7 +49,7 @@ export const ContactSection = () => {
               className="relative"
             >
               <motion.div 
-                className="absolute rotate-270 left-[-170px] top-[100px] my-5 italic text-6xl font-primary font-bold drop-shadow-[0_1.1px_1.1px_rgba(1,1,1,1)] z-999"
+                className="absolute rotate-270 left-[-170px] top-[100px] my-5 italic text-6xl font-primary font-bold drop-shadow-[0_1.1px_1.1px_rgba(1,1,1,1)] z-[99999]"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
@@ -94,6 +108,15 @@ export const ContactSection = () => {
           </div>
         )
       }
+      {/* only animate the footer when already scrolled to the very bottom */}
+      <motion.footer 
+        className="fixed bottom-5 landscape:bottom-15 justify-center mt-10 text-cfgray text-sm"
+        initial={{ opacity: 0, y: 50 }}
+        animate={ scrollPosition + window.innerHeight >= document.body.scrollHeight - 100 ? { opacity: 1, y: 0 } : {} }
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+      >   
+        &copy; 2025 Kenneth Sunjaya. All rights reserved.
+      </motion.footer>
     </div>
   );
 };
