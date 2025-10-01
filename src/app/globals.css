@@ -54,6 +54,15 @@ p {
   line-height: 1.75;
 }
 
+blockquote {
+  font-family: var(--font-inter);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  border-left: 3px solid #CFCFCF;
+  display:inline-flex;
+} 
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .scrollbar-hidden::-webkit-scrollbar {

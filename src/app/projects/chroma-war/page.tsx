@@ -25,7 +25,7 @@ export default function ChromaWar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {
-          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold" words="The Dev's Story Behind Chroma War" delay={40} /> : <h1 className="text-4xl font-semibold">The Dev&apos;s Story Behind Chroma War</h1>
+          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold whitespace-nowrap" words="The Dev's Story Behind Chroma War" delay={40} /> : <h1 className="text-4xl font-semibold">The Dev&apos;s Story Behind Chroma War</h1>
         }
         <div className="flex mt-5 mb-3 text-cfgray text-sm items-center">
           <FaRegClock />
@@ -36,13 +36,13 @@ export default function ChromaWar() {
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>It all started one evening at my friend’s dorm. There were four of us hanging out when someone suggested playing a game on my iPad called <strong>“1 2 3 4 Player Games.”</strong> The game had dozens of fun mini-games, but we eventually stumbled upon one mode called <strong>Color Wars</strong>.</p>
           <p>Color Wars was a simple yet brilliant chain reaction strategy game where players took turns placing dots that could “burst” and take over their opponent’s territory. After a few rounds, I began to notice the pattern behind the mechanics. As someone who loves strategy games—especially ones that are easy to pick up but hard to master—I was instantly hooked. And then an idea struck me:</p>
-          <p className="italic">{'“What if I could create my own version of this game? One that didn’t require everyone to be huddled around a single iPad, but could instead be played solo against an AI or even with friends online, across different devices, just through a browser?”'}</p>
+          <blockquote className="italic">{'“What if I could create my own version of this game? One that didn’t require everyone to be huddled around a single iPad, but could instead be played solo against an AI or even with friends online, across different devices, just through a browser?”'}</blockquote>
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">The Development Begins</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>The first step was to develop the main game logic—the chain reaction itself. To my surprise, the recursion turned out to be pretty straightforward. Within five minutes I figured it out, and in about thirty minutes of coding, I had a working prototype.</p>
           <div className="flex flex-col h-fit items-center">
-            <Image src="/chroma-war-prototype.webp" alt="Chroma War First Ever Working Prototype" width={600} height={0} />
+            <Image src="/chroma-war-prototype.webp" alt="Chroma War First Ever Working Prototype" className="rounded-lg" width={600} height={0} />
             <p className="text-center text-sm mt-3">The First Iteration of Working Prototype of Chroma War</p>
           </div>
           <p>Next came the animations. I wanted to add a satisfying “burst” effect when a cell reached four dots. Using <strong>TailwindCSS</strong> for styling and <strong>Framer Motion</strong> for the animation, I was able to make it come alive. It wasn’t easy as I was still new to Framer Motion and was juggling my 4th-semester final projects at the time. After several days, I finally got it right.</p>
@@ -79,7 +79,7 @@ export default function ChromaWar() {
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>With the Versus AI mode complete, the game was halfway done. The next step was enabling multiplayer. I used <strong>WebSockets (Socket.IO)</strong> for real-time communication and <strong>Node.js</strong> as the backend. This allowed players to connect and play against each other from anywhere—no longer tied to a single device.</p>
           <div className="flex flex-col h-fit items-center">
-            <Image src="/chroma-war-final.webp" alt="Chroma War Final Preview" width={600} height={0} />
+            <Image src="/chroma-war-final.webp" alt="Chroma War Final Preview" className="rounded-lg" width={600} height={0} />
             <p className="text-center text-sm mt-3">Final Preview of Chroma War</p>
           </div>
           <p>What started as a casual gaming night with friends turned into one of my most exciting projects yet. Along the way, I learned about recursion, animations, AI algorithms, and real-time networking. But more than that, I discovered how a small spark of inspiration—born from laughter in a dorm could grow into a full-fledged strategy game that others can enjoy.</p>

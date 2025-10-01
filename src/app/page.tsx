@@ -91,11 +91,11 @@ function Home() {
           project_story_path={"/projects/seatudy"}  
         />
       </LazySection>
-      {/* <LazySection id="project4">
+      <LazySection id="project4">
         <Project
           title={'HORUS AI'}
           description={"An intelligent real-time system that detects illegal parking behavior from live traffic camera feeds by analyzing driver actions and intent, rather than just identifying parked vehicles."}
-          imageUrl={"/seatudy.webp"}
+          imageUrl={"/horus-ai-preview.webp"}
           logo={"/horus_logo.webp"}
           link={"https://horusintelligence.vercel.app/"}
           number={4}
@@ -103,7 +103,7 @@ function Home() {
           techstacks={['Next.js', 'GCP', 'YOLOv11', 'Flask', 'Firebase', 'Gemini']}
           project_story_path={"/projects/horus-ai"}  
         />
-      </LazySection> */}
+      </LazySection>
       <LazySection id="experience">
         <Experience />
       </LazySection>
