@@ -46,12 +46,14 @@ export const SideBar = () => {
                       handleScrollTo("#project2");
                     } else if (currentHash === "#project2") {
                       handleScrollTo("#project3");
+                    } else if (currentHash === "#project3") {
+                      handleScrollTo("#project4");
                     } else {
                       handleScrollTo("#project1"); // default start
                     }
                     return;
                   }
-                  if (id === "#experience") {
+                  if (id === "#experience" && orientation === "portrait") {
                     handleScrollTo(id, 800);
                     return;
                   }
