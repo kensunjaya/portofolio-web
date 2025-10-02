@@ -9,7 +9,7 @@ export const SideBar = () => {
   const pathname = usePathname();
   return (
     <nav className="fixed top-5 text-cfgray md:top-10 left-0 md:left-5 lg:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
-      <div className="flex flex-col items-center space-y-45 sm:space-y-50">
+      <div className="flex flex-col items-center space-y-45">
         <Image
           src="/logo.svg"
           alt="Logo"
