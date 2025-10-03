@@ -82,7 +82,7 @@ export const ContactSection = () => {
         ) : (
           <div className={`flex flex-col items-center justify-center gap-10 pr-10 pl-12 py-5 transition-opacity ${openMessagePage ? "opacity-0" : "opacity-100"}`} id="contact">
             <div className="flex flex-col max-w-[350px] xl:max-w-[800px]">
-              <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold" words={"Hello World!"} placeholder />
+              <TextRandomizerEffect className="text-2xl md:text-3xl lg:text-5xl font-semibold text-header" words={"Hello World!"} placeholder />
               <p className="text-sm md:text-md lg:text-lg mb-5 md:mb-8 text-cfgray mt-3 md:mt-5 text-justify">I&apos;m Kenneth, an Undergraduate Computer Science student at Binus University, currently based in Indonesia. I&apos;m deeply passionate about turning ideas into reality through <code className="py-1 px-2 outline outline-header text-header">code</code> , and over the years I&apos;ve built a diverse portfolio of projects spanning <strong>Front-end Development, Mobile App Development, and Back-end Development</strong>. Both as part of a team and independently.</p>
               <p className="text-sm md:text-md lg:text-lg mb-5 md:mb-8 text-cfgray text-justify">Beyond just writing code, I enjoy exploring <strong>clean design, intuitive user experiences, and scalable architectures</strong>. My journey has been fueled by curiosity, problem-solving, and a drive to create technology that&apos;s not only functional, but also meaningful.</p>
               <CustomButton onClick={() => setOpenMessagePage(true)}>
