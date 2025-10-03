@@ -96,7 +96,7 @@ const SendMessagePage = () => {
                 placeholder="Your name"
                 aria-label="Your name"
                 {...register("name")}
-                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+                className="w-full bg-transparent border-0 border-b border-header text-cfgray placeholder-zinc-400 focus:outline-none focus:border-secondary transition-colors py-3"
               />
               {errors.name && (
                 <p className="text-orange-500 text-sm mt-1">
@@ -112,7 +112,7 @@ const SendMessagePage = () => {
                 placeholder="Your email"
                 aria-label="Your email"
                 {...register("email")}
-                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3"
+                className="w-full bg-transparent border-0 border-b border-header text-cfgray placeholder-zinc-400 focus:outline-none focus:border-secondary transition-colors py-3"
               />
               {errors.email && (
                 <p className="text-orange-500 text-sm mt-1">
@@ -126,7 +126,7 @@ const SendMessagePage = () => {
                 aria-label="Your message"
                 rows={5}
                 {...register("message")}
-                className="w-full bg-transparent border-0 border-b border-zinc-300/70 dark:border-zinc-700/70 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors py-3 resize-y"
+                className="w-full bg-transparent border-0 border-b border-header text-cfgray placeholder-zinc-400 focus:outline-none focus:border-secondary transition-colors py-3 resize-y"
               />
               {errors.message && (
                 <p className="text-red-500 text-sm mt-1">
