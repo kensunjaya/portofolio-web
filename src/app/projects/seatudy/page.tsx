@@ -10,15 +10,18 @@ import { FaAngleDoubleUp, FaAngleRight } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
+import { ThemeChanger } from "@/components/ui/theme-changer";
+import { useTheme } from "@/components/context/theme-context";
 
 export default function Seatudy() {
   const navigator = useRouter();
   const { breakpoint, orientation } = useTailwindBreakpoint();
-
+  const { isDarkMode } = useTheme();
   return (
     <div className="flex flex-col items-center w-full h-fit py-25 font-light">
       <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'sm' ? 900 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SideBar />
+      <ThemeChanger />
       <motion.div 
         className="sm:w-fit p-5 lg:w-[850px]"
         initial={{ opacity: 0, y: 50 }}
@@ -26,7 +29,7 @@ export default function Seatudy() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {
-          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold whitespace-nowrap" words="The Story Behind SEATUDY" delay={40} /> : <h1 className="text-4xl font-semibold">The Story Behind SEATUDY</h1>
+          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl text-header font-semibold whitespace-nowrap" words="The Story Behind SEATUDY" delay={40} /> : <h1 className="text-4xl font-semibold">The Story Behind SEATUDY</h1>
         }
         <div className="flex mt-5 mb-3 text-cfgray text-sm items-center">
           <FaRegClock />
@@ -36,7 +39,7 @@ export default function Seatudy() {
         <hr className="py-2 text-secondary" />
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>It was a quiet morning during my 2nd semester break. While scrolling through Instagram, I stumbled upon a post promoting the <strong>Software Engineering Academy by COMPFEST</strong>. It is the largest annual technology event in Indonesia, organized by University of Indonesia (UI).</p>
-          <p>I was immediately interested. The Academy promised <strong>two months of intensive learning about software engineering best practices</strong>. But first, there was a recruitment challenge: build a full-stack online appointment platform for a fictional salon called <Link href="https://kensunjaya.github.io/SEA-Salon/" target="_blank" className="text-blue-300 underline">SEA Salon</Link>.</p>
+          <p>I was immediately interested. The Academy promised <strong>two months of intensive learning about software engineering best practices</strong>. But first, there was a recruitment challenge: build a full-stack online appointment platform for a fictional salon called <Link href="https://kensunjaya.github.io/SEA-Salon/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>SEA Salon</Link>.</p>
           <p>The requirements were clear:</p>
           <ul className="list-disc space-y-2 ml-6">
             <li className="pl-2">A working frontend and backend.</li>
@@ -53,7 +56,7 @@ export default function Seatudy() {
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Entering the Academy</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>The bootcamp kicked off with advanced topics: <strong>Microservices, Clean Code, Clean Architecture, APIs, Design Patterns, CI/CD, and Software Security</strong>. But beyond lectures, we were also assigned a hands-on project.</p>
-          <p>In teams of four, each with a mentor, we were tasked with building an online learning platform called <Link href="https://seatudy-real.vercel.app/popular-courses" target="_blank" className="text-blue-300 underline">SEATUDY</Link>. The challenge was not just to code but to:</p>
+          <p>In teams of four, each with a mentor, we were tasked with building an online learning platform called <Link href="https://seatudy-real.vercel.app/popular-courses" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>SEATUDY</Link>. The challenge was not just to code but to:</p>
           <ul className="list-disc space-y-2 ml-6">
             <li className="pl-2">Plan the architecture.</li>
             <li className="pl-2">Apply clean code and design patterns.</li>
@@ -73,7 +76,7 @@ export default function Seatudy() {
             <li className="pl-2">Files uploaded to Cloudinary became inaccessible from the site.</li>
           </ul>
           <p>We barely slept for those last two days, debugging and fixing issues nonstop. By the morning of the deadline, we were exhausted, but SEATUDY was ready.</p>
-          <p>On presentation day, everything came together. We deployed the frontend on Vercel, the backend and database on Aiven, and <Link href="https://drive.google.com/file/d/1lzcoztaus4hk5dPZLngFIRMratDwJKrR/view?usp=sharing" target="_blank" className="text-blue-300 underline">showcased</Link> the platform to the jury. The response was overwhelmingly positive. They were especially impressed by our UI/UX design and how well we executed under pressure.</p>
+          <p>On presentation day, everything came together. We deployed the frontend on Vercel, the backend and database on Aiven, and <Link href="https://drive.google.com/file/d/1lzcoztaus4hk5dPZLngFIRMratDwJKrR/view?usp=sharing" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>showcased</Link> the platform to the jury. The response was overwhelmingly positive. They were especially impressed by our UI/UX design and how well we executed under pressure.</p>
           <div className="flex flex-col h-fit items-center">
             <Image src="/online-pitching.webp" alt="Online Pitching of SEATUDY" className="rounded-lg" width={800} height={0} />
             <p className="text-center text-sm mt-3">The Presentation of SEATUDY Held Online</p>
@@ -83,7 +86,7 @@ export default function Seatudy() {
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>While SEATUDY was the highlight, the Academy journey wasn’t over yet. For the final stage, participants from different divisions: User Experience, Product Management, Data Science, and Software Engineering were grouped into cross-functional teams of ten.</p>
           <p>Our challenge: design a solution to help people with disabilities find meaningful employment. Unemployment rates for people with disabilities in Indonesia remain disproportionately high, and we were determined to build something impactful.</p>
-          <p>After several brainstorming sessions, we came up with <Link href="https://drive.google.com/file/d/1EPV72UQob9s_dqTMMIG-OYO_tFSSRwqK/view?usp=sharing" target="_blank" className="text-blue-300 underline">ABILILINK</Link>, a platform that connects people with disabilities to job opportunities. Beyond job listings, the platform would also provide access to essential courses to help users upskill. I contributed by creating the use case diagrams and system design for the application.</p>
+          <p>After several brainstorming sessions, we came up with <Link href="https://drive.google.com/file/d/1EPV72UQob9s_dqTMMIG-OYO_tFSSRwqK/view?usp=sharing" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>ABILILINK</Link>, a platform that connects people with disabilities to job opportunities. Beyond job listings, the platform would also provide access to essential courses to help users upskill. I contributed by creating the use case diagrams and system design for the application.</p>
           <p>At the COMPFEST 16 Graduation Night, held at University of Indonesia’s Faculty of Computer Science, we presented ABILILINK to the jury. To our delight, the project received strong appreciation, and when it was time to announce the winner, our team was named Best Case Study Team. Walking up to the stage with my teammates to receive our certificates and take photos was a moment I’ll never forget.</p>
           <div className="flex flex-col h-fit items-center">
             <Image src="/compfest-graduation-night.webp" alt="Graduation Night" className="rounded-lg" width={800} height={0} />

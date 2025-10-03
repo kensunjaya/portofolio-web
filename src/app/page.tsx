@@ -12,6 +12,8 @@ import { ViewCVButton } from "@/components/ui/curriculum-vitae";
 import { SocialMediaLinks } from "@/components/ui/social-media";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
 import { FaAnglesDown } from "react-icons/fa6";
+import { ThemeChanger } from "@/components/ui/theme-changer";
+import { useTheme } from "@/components/context/theme-context";
 
 function Home() {
   const [scrollIconOpacity, setScrollIconOpacity] = React.useState(0);
@@ -20,6 +22,7 @@ function Home() {
   };
 
   const { breakpoint } = useTailwindBreakpoint();
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -31,12 +34,20 @@ function Home() {
 
   return (
     <main className="w-full min-h-screen overflow-hidden landscape:px-30">
-      <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
+      {
+        isDarkMode ? <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
+        : <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380}
+        gradientFirst = "radial-gradient(68.54% 68.72% at 60.02% 31.46%, hsla(30, 50%, 70%, .08) 0, hsla(30, 45%, 50%, .02) 50%, hsla(30, 40%, 35%, 0) 80%)"
+        gradientSecond = "radial-gradient(50% 50% at 50% 60%, hsla(30, 55%, 75%, .06) 0, hsla(30, 45%, 45%, .02) 80%, transparent 100%)"
+        gradientThird = "radial-gradient(50% 50% at 50% 60%, hsla(30, 50%, 70%, .04) 0, hsla(30, 40%, 35%, .02) 80%, transparent 100%)" />
+      }
+      
       <SocialMediaLinks />
       <ViewCVButton />
+      <ThemeChanger />
       <SideBar />
       {scrollIconOpacity > 0 && (
-        <div className="fixed flex flex-col justify-end items-center bottom-[50px] left-0 right-0 space-y-3 transition duration-200 z-999" style={{ opacity: scrollIconOpacity / 100 }}>
+        <div className="fixed flex flex-col justify-end items-center bottom-[50px] left-0 right-0 space-y-3 transition duration-200 z-999 text-header" style={{ opacity: scrollIconOpacity / 100 }}>
           <div className="select-none text-xs">Scroll</div>
           <FaAnglesDown
             className="animate-pulse transition text-2xl cursor-pointer"

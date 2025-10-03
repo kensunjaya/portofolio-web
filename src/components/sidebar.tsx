@@ -1,25 +1,30 @@
 import { handleScrollTo } from "@/lib/utilfunctions";
 import Image from "next/image";
 import { useTailwindBreakpoint } from "./hooks/breakpoint";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "./context/theme-context";
 
 export const SideBar = () => {
   const { orientation } = useTailwindBreakpoint();
+  const { isDarkMode } = useTheme();
   const project_pathnames = ["/projects/chroma-war", "/projects/seatudy", "/projects/next-sudoku", "/projects/horus-ai"];
   const pathname = usePathname();
+  const navigation = useRouter();
   return (
     <nav className="fixed top-5 text-cfgray md:top-10 left-0 md:left-5 lg:left-10 h-0 w-16 bg-transparent flex flex-col items-center justify-between z-[999] scale-60 md:scale-100">
       <div className="flex flex-col items-center space-y-45">
         <Image
-          src="/logo.svg"
+          src={isDarkMode ? "/logo.svg" : "/logolight.svg"}
           alt="Logo"
           width={48}
           height={48}
           onClick={() => {
             if (window.location.pathname !== "/") {
-              window.location.href = "/";
+              navigation.push("/");
             }
-            handleScrollTo("#home");
+            else {
+              handleScrollTo("");
+            }
           }}
           style={{ cursor: "pointer" }}
         />
@@ -37,11 +42,11 @@ export const SideBar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   if (window.location.pathname !== "/") {
-                    window.location.href = "/" + id;
+                    navigation.push("/" + id); 
+                    return;
                   }
                   if (id === "#project1") {
                     const currentHash = window.location.hash;
-
                     if (currentHash === "#project1") {
                       handleScrollTo("#project2");
                     } else if (currentHash === "#project2") {
@@ -60,7 +65,7 @@ export const SideBar = () => {
                   handleScrollTo(id);
                 }}
               >
-                <span className="relative text-white z-10 group-hover:text-secondary transition-colors duration-300">
+                <span className="relative text-header z-10 group-hover:text-secondary transition-colors duration-300">
                   {label}
                 </span>
               </a>

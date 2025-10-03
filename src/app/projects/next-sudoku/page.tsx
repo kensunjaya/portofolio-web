@@ -10,14 +10,18 @@ import { FaAngleDoubleUp, FaAngleRight } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
+import { ThemeChanger } from "@/components/ui/theme-changer";
+import { useTheme } from "@/components/context/theme-context";
 
 export default function NextSudoku() {
   const navigator = useRouter();
   const { breakpoint, orientation } = useTailwindBreakpoint();
+  const { isDarkMode } = useTheme();
   return (
     <div className="flex flex-col items-center w-full h-fit py-25 font-light">
       <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'sm' ? 900 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SideBar />
+      <ThemeChanger />
       <motion.div 
         className="sm:w-fit p-5 lg:w-[850px]"
         initial={{ opacity: 0, y: 50 }}
@@ -25,7 +29,7 @@ export default function NextSudoku() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {
-          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold whitespace-nowrap" words="A Journey of NExT Sudoku Creation" delay={40} /> : <h1 className="text-4xl font-semibold">A Journey of NExT Sudoku Creation</h1>
+          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl text-header font-semibold whitespace-nowrap" words="A Journey of NExT Sudoku Creation" delay={40} /> : <h1 className="text-4xl font-semibold">A Journey of NExT Sudoku Creation</h1>
         }
         <div className="flex mt-5 mb-3 text-cfgray text-sm items-center">
           <FaRegClock />
@@ -43,7 +47,7 @@ export default function NextSudoku() {
             <li className="pl-2">If any cell couldn’t be filled with a valid number, restart from step 2.</li>
             <li className="pl-2">Once a valid puzzle was generated, randomly hide some numbers to create the playable Sudoku.</li>
           </ul>
-          <p>The method worked… but it was painfully slow. Sometimes it took over a minute just to generate a puzzle. Still, it was enough to submit and pass <Link href="https://github.com/kensunjaya/sudoku" target="_blank" className="text-blue-300 underline">my project</Link>, and I moved on.</p>
+          <p>The method worked… but it was painfully slow. Sometimes it took over a minute just to generate a puzzle. Still, it was enough to submit and pass <Link href="https://github.com/kensunjaya/sudoku" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>my project</Link>, and I moved on.</p>
           <div className="flex flex-col h-fit items-center">
             <Image src="/sudoku-cli.webp" alt="Sudoku CLI" className="rounded-lg" width={600} height={0} />
             <p className="text-center text-sm mt-3">Sudoku on Command Line Interface</p>
@@ -67,7 +71,7 @@ export default function NextSudoku() {
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Migrating to AWS</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
-          <p>A few weeks later, another final project came along: this time, we had to build something that used an AWS service. I decided to extend my Sudoku project by migrating the leaderboard from MongoDB Atlas to <Link href="https://aws.amazon.com/dynamodb/" target="_blank" className="text-blue-300 underline">AWS DynamoDB.</Link></p>
+          <p>A few weeks later, another final project came along: this time, we had to build something that used an AWS service. I decided to extend my Sudoku project by migrating the leaderboard from MongoDB Atlas to <Link href="https://aws.amazon.com/dynamodb/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>AWS DynamoDB.</Link></p>
           <p>After some tweaking, the migration worked and the difference in performance was noticeable. DynamoDB handled reads and writes faster than MongoDB, making the leaderboard even smoother.</p>
           <div className="flex flex-col h-fit items-center pb-5">
             <Image src="/next-sudoku-preview.webp" alt="NExT Sudoku" className="rounded-lg" width={600} height={0} />
@@ -76,7 +80,7 @@ export default function NextSudoku() {
         </section>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>What began as a simple C project with a brute force algorithm in 2023 evolved into a full-stack web app in 2025 with a sleek UI, fast puzzle generation using backtracking, a competitive leaderboard, and integration with AWS DynamoDB.</p>
-          <p>That project is now called <Link href="https://next-sudoku-web.vercel.app/" target="_blank" className="text-blue-300 underline">NExT Sudoku</Link>, a nod to both its Next.js foundation and the idea of taking Sudoku to the next level.</p>
+          <p>That project is now called <Link href="https://next-sudoku-web.vercel.app/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>NExT Sudoku</Link>, a nod to both its Next.js foundation and the idea of taking Sudoku to the next level.</p>
         </section>
         <div className="flex mt-5 lg:mt-10">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">

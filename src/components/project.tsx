@@ -7,10 +7,11 @@ import { motion } from "framer-motion";
 import { Breakpoint, TechStack } from "./interface/types";
 import { useRouter } from "next/navigation";
 import { LuScrollText } from "react-icons/lu";
-import { RiExpandDiagonalLine } from "react-icons/ri";
+import { BiExpandAlt } from "react-icons/bi";
+import { useTheme } from "./context/theme-context";
 
 export const Project = ({ title, description, imageUrl, link, number, breakpoint, techstacks, logo, project_story_path } : { title: string, description: string, imageUrl: string, link: string, number: number, breakpoint: Breakpoint, techstacks: TechStack[], logo: string, project_story_path?: string }) => {
-  const techStackClasses: Record<TechStack, string> = {
+  const techStackClassesDark: Record<TechStack, string> = {
     "React": "border-cyan-400 text-cyan-400",
     "Next.js": "border-indigo-300 text-indigo-300",
     "TypeScript": "border-blue-400 text-blue-400",
@@ -28,7 +29,26 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
     "Gemini": "border-sky-400 text-sky-400",
   };
 
+  const techStackClassesLight: Record<TechStack, string> = {
+    "React": "border-cyan-600 text-cyan-600",
+    "Next.js": "border-violet-600 text-violet-600",
+    "TypeScript": "border-blue-500 text-blue-500",
+    "Node.js": "border-emerald-600 text-emerald-600",
+    "Express": "border-gray-600 text-gray-600",
+    "MongoDB": "border-green-600 text-green-600",
+    "AWS": "border-yellow-600 text-yellow-600",
+    "PostgreSQL": "border-pink-600 text-pink-600",
+    "Figma": "border-purple-600 text-purple-600",
+    "Socket.io": "border-orange-600 text-orange-600",
+    "Firebase": "border-yellow-700 text-yellow-700",
+    "YOLOv11": "border-red-600 text-red-600",
+    "Flask": "border-gray-700 text-gray-700",
+    "GCP": "border-green-700 text-green-700",
+    "Gemini": "border-sky-600 text-sky-600",
+  };
+
   const navigator = useRouter();
+  const { isDarkMode } = useTheme();
 
   return (
     <motion.div 
@@ -41,18 +61,18 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
         <div className="flex-col space-y-8 max-w-[350px] lg:max-w-[500px] xl:max-w-[550px] portrait:px-4">
           <div className="font-bold text-xl select-none">
             <span className="text-secondary mr-3">{"//"}</span>
-            <span>{number}</span>
+            <span className="text-header">{number}</span>
           </div>
           <div className="flex gap-5 items-center">
             <Image src={logo} alt={title} width={50} height={50} />
-            <TextRandomizerEffect className="portrait:text-3xl landscape:text-5xl font-semibold whitespace-nowrap" words={title} placeholder={true} />
+            <TextRandomizerEffect className="portrait:text-3xl landscape:text-5xl font-semibold whitespace-nowrap text-header" words={title} placeholder={true} />
           </div>
           <span className="text-lg md:text-xl xl:text-2xl text-cfgray leading-[1.5] font-inter">{description}</span>
           <div className="flex flex-row flex-wrap gap-3 mt-10 text-sm md:text-md lg:text-lg">
             {techstacks.map((tech) => (
               <div
                 key={tech}
-                className={`outline-1 md:outline-2 rounded-full w-fit px-3 font-inter py-1 ${techStackClasses[tech]}`}
+                className={`outline-1 md:outline-2 rounded-full w-fit px-3 font-inter py-1 ${isDarkMode ? techStackClassesDark[tech] : techStackClassesLight[tech]}`}
               >
                 {tech}
               </div>
@@ -61,13 +81,13 @@ export const Project = ({ title, description, imageUrl, link, number, breakpoint
           <div className="flex portrait:flex-col">
             <CustomButton onClick={() => handleOpenUrl(link)} className="portrait:w-full">
               <div className="flex items-center justify-center gap-2 font-semibold">
-                <RiExpandDiagonalLine className="text-xl" />
+                <BiExpandAlt className="text-xl" />
                 <span>View Project</span>
               </div>
             </CustomButton>
             {
               project_story_path && (
-                <CustomButton onClick={() => navigator.push(project_story_path)} className="portrait:w-full landscape:ml-10 portrait:mt-5" backgroundColor="bg-indigo-200" fillColor="bg-indigo-300">
+                <CustomButton onClick={() => navigator.push(project_story_path)} className="portrait:w-full landscape:ml-10 portrait:mt-5" backgroundColor="bg-third" fillColor="bg-third-hover">
                   <div className="flex items-center justify-center gap-2 font-semibold">
                     <LuScrollText className="text-xl" />
                     <span>Read Full Story</span>

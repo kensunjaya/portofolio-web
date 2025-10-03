@@ -1,15 +1,73 @@
 @import "tailwindcss";
 
-:root {
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #090F13;
+    --color-secondary: #89ECFF;
+    --color-secondary-hover: #6AD6EB;
+    --color-third: #C6D2FF;
+    --color-third-hover: #A3B3FF;
+    --color-cfgray: #CFCFCF;
+    --color-header: #FFFFFF;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: #FAF8F1;
+    --color-secondary: #034C53;
+    --color-secondary-hover: #036973;
+    --color-third: #536493;
+    --color-third-hover: #6377b0;
+    --color-cfgray: #44444E;
+    --color-header: #000000;
+  }
+}
+
+
+:root.dark {
   --color-primary: #090F13;
   --color-secondary: #89ECFF;
+  --color-secondary-hover: #6AD6EB;
+  --color-third: #C6D2FF;
+  --color-third-hover: #A3B3FF;
   --color-cfgray: #CFCFCF;
+  --color-header: #FFFFFF;
 }
+
+:root.dark strong {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+:root.light {
+  --color-primary: #FAF8F1;
+  --color-secondary: #034C53;
+  --color-secondary-hover: #036973;
+  --color-third: #536493;
+  --color-third-hover: #6377b0;
+  --color-cfgray: #44444E;
+  --color-header: #222831;
+}
+
+:root.light strong {
+  font-weight: 600;
+  color: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-header);
+}
+
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
+  --color-secondary-hover: var(--color-secondary-hover);
+  --color-third: var(--color-third);
+  --color-third-hover: var(--color-third-hover);
   --color-cfgray: var(--color-cfgray);
+  --color-header: var(--color-header);
 
   --font-primary: var(--font-poppins);
   --font-mono: var(--font-anonymous-pro);
@@ -43,11 +101,6 @@ section {
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
-}
-
-strong {
-  font-weight: 600;
-  color: #FFFFFF;
 }
 
 p {

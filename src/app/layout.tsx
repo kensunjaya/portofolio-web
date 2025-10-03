@@ -4,6 +4,7 @@ import { Anonymous_Pro, Inter, Poppins } from "next/font/google";
 import { Slide, ToastContainer } from "react-toastify";
 import { Analytics } from "@vercel/analytics/next"
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "@/components/context/theme-context";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -42,7 +43,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
-      <body className="antialiased bg-secondary font-primary text-white overflow-x-hidden">
+      <body className="antialiased bg-secondary font-primary text-white overflow-x-hidden transition-colors duration-300">
+        <ThemeProvider>
         <ToastContainer
           position="top-center"
           autoClose={5000}
@@ -58,6 +60,7 @@ export default function RootLayout({
           toastStyle={{ fontFamily: 'var(--font-primary)' }}
         />
         {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

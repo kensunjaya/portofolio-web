@@ -10,14 +10,18 @@ import { FaAngleDoubleUp, FaAngleRight } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
+import { ThemeChanger } from "@/components/ui/theme-changer";
+import { useTheme } from "@/components/context/theme-context";
  
 export default function ChromaWar() {
   const navigator = useRouter();
   const { breakpoint, orientation } = useTailwindBreakpoint();
+  const { isDarkMode } = useTheme();
   return (
     <div className="flex flex-col items-center w-full h-fit py-25 font-light">
       <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'sm' ? 900 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SideBar />
+      <ThemeChanger />
       <motion.div 
         className="sm:w-fit p-5 lg:w-[850px]"
         initial={{ opacity: 0, y: 50 }}
@@ -25,7 +29,7 @@ export default function ChromaWar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {
-          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold whitespace-nowrap" words="The Dev's Story Behind Chroma War" delay={40} /> : <h1 className="text-4xl font-semibold">The Dev&apos;s Story Behind Chroma War</h1>
+          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl text-header font-semibold whitespace-nowrap" words="The Dev's Story Behind Chroma War" delay={40} /> : <h1 className="text-4xl font-semibold">The Dev&apos;s Story Behind Chroma War</h1>
         }
         <div className="flex mt-5 mb-3 text-cfgray text-sm items-center">
           <FaRegClock />
@@ -69,7 +73,7 @@ export default function ChromaWar() {
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Naming the Game</h2>
         <div className="flex flex-col gap-5 text-lg text-cfgray">
-          <p>I decided to call my project <Link href="https://chroma-war.vercel.app" target="_blank" className="text-blue-300 underline">Chroma War</Link>.</p>
+          <p>I decided to call my project <Link href="https://chroma-war.vercel.app" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>Chroma War</Link>.</p>
           <ul className="list-disc space-y-2 ml-6">
             <li className="pl-2"><strong>Chroma</strong> represents the colors battling for dominance.</li>
             <li className="pl-2"><strong>War</strong> represents the strategic conflict at the heart of the gameplay.</li>

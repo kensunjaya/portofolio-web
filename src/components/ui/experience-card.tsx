@@ -24,15 +24,15 @@ export const ExperienceCard = ({
         transform: isActive ? "scale(1) translateY(0px)" : "scale(0.95) translateY(4px)",
       }}
     >
-      <div className="relative w-fit">
+      <div className="relative w-fit text-header">
         <div className="flex flex-col items-center justify-center h-full gap-8 pt-5">
           <div className="text-lg md:text-xl lg:text-2xl font-bold rotate-[270deg]">{year}</div>
-          <div className="h-full border border-white" />
+          <div className="h-full border border-header" />
         </div>
       </div>
 
       <div className="flex flex-col gap-3 lg:gap-6 max-w-[20rem] lg:max-w-[30rem] xl:max-w-[35rem] pr-5">
-        <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{title}</div>
+        <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-header">{title}</div>
         <p className="text-sm sm:text-md md:text-lg xl:text-xl text-cfgray leading-relaxed font-inter">{description}</p>
       </div>
     </div>

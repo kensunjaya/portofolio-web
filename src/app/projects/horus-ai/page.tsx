@@ -10,14 +10,18 @@ import { FaAngleDoubleUp, FaAngleRight } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useTailwindBreakpoint } from "@/components/hooks/breakpoint";
+import { ThemeChanger } from "@/components/ui/theme-changer";
+import { useTheme } from "@/components/context/theme-context";
  
 export default function ChromaWar() {
   const navigator = useRouter();
   const { breakpoint, orientation } = useTailwindBreakpoint();
+  const { isDarkMode } = useTheme();
   return (
     <div className="flex flex-col items-center w-full h-fit py-25 font-light">
       <Spotlight height={breakpoint == 'xs' ? 850 : breakpoint == 'sm' ? 900 : breakpoint == 'md' ? 1000 : breakpoint == 'lg' ? 1200 : 1380} />
       <SideBar />
+      <ThemeChanger />
       <motion.div 
         className="sm:w-fit p-5 lg:w-[850px]"
         initial={{ opacity: 0, y: 50 }}
@@ -25,7 +29,7 @@ export default function ChromaWar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {
-          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl font-semibold whitespace-nowrap" words="From Idea to Podium: The Story of HORUS AI" delay={40} /> : <h1 className="text-4xl font-semibold">From Idea to Podium: The Story of HORUS AI</h1>
+          orientation === "landscape" ? <TextRandomizerEffect className="text-4xl text-header font-semibold whitespace-nowrap" words="From Idea to Podium: The Story of HORUS AI" delay={40} /> : <h1 className="text-4xl font-semibold">From Idea to Podium: The Story of HORUS AI</h1>
         }
         <div className="flex mt-5 mb-3 text-cfgray text-sm items-center">
           <FaRegClock />
@@ -37,7 +41,7 @@ export default function ChromaWar() {
           <p>It was the semester break in July 2025 when I received an invitation from a friend to join their team for the <strong>AI Innovation Challenge</strong>, part of <strong>COMPFEST 17</strong>, the biggest student-led IT event in Indonesia.</p>
           <p>The problem statement was urbanization and smart cities. After some brainstorming, one of my teammates proposed an idea:</p>
           <blockquote className="italic">{'“Illegal parking is a huge contributor to traffic congestion in Jakarta and Bandung. What if we build a computer vision system to automatically detect illegal parking and assist city officers?”'}</blockquote>
-          <p>It sounded promising, so we decided to pursue it. Over the next few weeks, we worked tirelessly on the project, which we named <Link href="https://horusintelligence.vercel.app/" target="_blank" className="text-blue-300 underline">HORUS AI</Link>.</p>
+          <p>It sounded promising, so we decided to pursue it. Over the next few weeks, we worked tirelessly on the project, which we named <Link href="https://horusintelligence.vercel.app/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>HORUS AI</Link>.</p>
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Building the Core</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
@@ -80,12 +84,12 @@ export default function ChromaWar() {
           <p><strong>Mentoring 1</strong> revealed our biggest issue: performance. Our website was slow because the inference backend and data fetcher service ran on the same GCP instance, causing CPU and memory overload. On top of that, our inference was running on CPU instead of GPU—too sluggish for real-time.</p>
           <p>Upgrading to GPU on Google Cloud Run wasn’t possible, and using Google Compute Engine with GPU would exceed our credits. That’s when I proposed a scrappy solution:</p>
           <blockquote className="italic">{'“Why not run the inference server on my home PC with a decent GPU (NVIDIA GeForce RTX 3070), then expose it via a TCP tunneling service?”'}</blockquote>
-          <p>We tried it with <Link href="https://pinggy.io/" target="_blank" className="text-blue-300 underline">Pinggy</Link>, and the results were incredible, delivering <strong>10x smoother performance</strong> than GCP. The only risk was that my PC and internet needed to stay up 24/7. Luckily, it held strong all the way to the finals.</p>
+          <p>We tried it with <Link href="https://pinggy.io/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>Pinggy</Link>, and the results were incredible, delivering <strong>10x smoother performance</strong> than GCP. The only risk was that my PC and internet needed to stay up 24/7. Luckily, it held strong all the way to the finals.</p>
         </div>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Final Pitching Day</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>On September 28, 2025, at Universitas Indonesia’s Faculty of Computer Science, the top teams gathered for live pitching. We waited nervously as each team presented behind closed doors. At 11:20 AM, our turn came.</p>
-          <p>We delivered our pitch smoothly, <Link href="https://www.canva.com/design/DAGz3zuNGH8/3dTK0INVA9St5pyJfg5FlA/view?utm_content=DAGz3zuNGH8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc4058c463f" target="_blank" className="text-blue-300 underline">demonstrating</Link> HORUS AI’s ability to detect illegal parking, score urgency, and recommend enforcement actions. The jury asked tough questions, but we answered confidently. Walking out of the room, we felt relief and a quiet hope.</p>
+          <p>We delivered our pitch smoothly, <Link href="https://www.canva.com/design/DAGz3zuNGH8/3dTK0INVA9St5pyJfg5FlA/view?utm_content=DAGz3zuNGH8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc4058c463f" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>demonstrating</Link> HORUS AI’s ability to detect illegal parking, score urgency, and recommend enforcement actions. The jury asked tough questions, but we answered confidently. Walking out of the room, we felt relief and a quiet hope.</p>
           <p>That evening, during the Awarding Night, we sat anxiously in the packed convention hall. When the announcer finally called out: <strong>“3rd Place Winner: BananaChoco”</strong></p>
           <p>We erupted in joy. Not only did we win <strong>3rd Place</strong> among 240+ teams, we also received the <strong>Best Audience Award</strong> for the project that received the most votes from the audience.</p>
           <div className="flex flex-col h-fit items-center">
@@ -102,8 +106,8 @@ export default function ChromaWar() {
         <section className="flex flex-col gap-5 text-lg text-cfgray">
           <p>The journey of HORUS AI wouldn’t have been possible without my amazing teammates:</p>
           <ul className="list-disc space-y-2 ml-6">
-            <li className="pl-2"><Link href="https://www.linkedin.com/in/michael-wijaya-a42616292/" className="text-blue-300 underline" target="_blank">Michael Wijaya</Link> as System Designer</li>
-            <li className="pl-2"><Link href="https://www.linkedin.com/in/vincentius-jacob-922b56302/" className="text-blue-300 underline" target="_blank">Vincentius Jacob Gunawan</Link> as Team Leader, ML Engineer</li>
+            <li className="pl-2"><Link href="https://www.linkedin.com/in/michael-wijaya-a42616292/" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`} target="_blank">Michael Wijaya</Link> as System Designer</li>
+            <li className="pl-2"><Link href="https://www.linkedin.com/in/vincentius-jacob-922b56302/" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`} target="_blank">Vincentius Jacob Gunawan</Link> as Team Leader, ML Engineer</li>
           </ul>
           <p>Working alongside <strong>Michael</strong> and <strong>Vincent</strong> was one of the highlights of this competition. The countless hours of brainstorming, late-night debugging, and shared excitement when things finally clicked are memories I’ll always cherish.</p>
           <div className="flex flex-col h-fit items-center">

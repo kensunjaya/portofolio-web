@@ -14,6 +14,7 @@ import emailjs from "@emailjs/browser";
 import { useRouter } from "next/navigation";
 import { SocialMediaLinks } from "@/components/ui/social-media";
 import { ViewCVButton } from "@/components/ui/curriculum-vitae";
+import { ThemeChanger } from "@/components/ui/theme-changer";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -72,6 +73,7 @@ const SendMessagePage = () => {
       <Spotlight />
       <SocialMediaLinks />
       <ViewCVButton />
+      <ThemeChanger />
       <SideBar />
       <div className="flex flex-col items-center justify-center h-screen">
         <motion.div
@@ -82,7 +84,7 @@ const SendMessagePage = () => {
         >
           <TextRandomizerEffect
             words="Send me a Message"
-            className="text-3xl font-semibold mb-10"
+            className="text-3xl font-semibold mb-10 text-header"
             placeholder
           />
 

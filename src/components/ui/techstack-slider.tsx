@@ -63,7 +63,7 @@ export const TechStackSlider = ({ className, style }: { className?: string; styl
   }, [orientation]);
 
   return (
-    <div className={`overflow-hidden transition fade-mask-horizontal ${orientation === "landscape" ? "w-full" : "max-w-[48rem]"} ${className}`} style={style}>
+    <div className={`overflow-hidden transition pb-1 fade-mask-horizontal ${orientation === "landscape" ? "w-full" : "max-w-[48rem]"} ${className}`} style={style}>
       <div
         ref={containerRef}
         className="flex space-x-5 mx-5"
