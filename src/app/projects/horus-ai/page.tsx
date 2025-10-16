@@ -123,7 +123,7 @@ export default function ChromaWar() {
             <p className="text-center text-sm mt-3">Our demonstration video, used for preliminary round</p>
           </div>
         </section>
-        <div className="flex mt-5 lg:mt-10">
+        <div className="flex mt-5 lg:mt-10 text-cfgray">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>

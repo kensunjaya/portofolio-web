@@ -88,7 +88,7 @@ export default function ChromaWar() {
           </div>
           <p>What started as a casual gaming night with friends turned into one of my most exciting projects yet. Along the way, I learned about recursion, animations, AI algorithms, and real-time networking. But more than that, I discovered how a small spark of inspiration—born from laughter in a dorm could grow into a full-fledged strategy game that others can enjoy.</p>
         </section>
-        <div className="flex mt-5 lg:mt-10">
+        <div className="flex mt-5 lg:mt-10 text-cfgray">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>

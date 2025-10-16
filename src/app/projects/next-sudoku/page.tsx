@@ -60,8 +60,8 @@ export default function NextSudoku() {
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">The Rebuild</h2>
         <section className="flex flex-col gap-5 text-lg text-cfgray">
-          <p>That very evening, at 9 PM, I opened my VS Code and started coding. This time, I decided to learn and properly implement the <strong>backtracking algorithm</strong>.</p>
-          <p>To my surprise, it worked beautifully. Unlike the brute force method, backtracking didn’t restart from scratch whenever it hit a dead end. Instead, it simply “backtracked” one step, trying alternative numbers until the puzzle was solved. The difference was night and day, puzzles generated in less than 0.5 seconds, so fast the loading felt instant.</p>
+          <p>That very evening, at 9 PM, I launched my VS Code and started coding. This time, I decided to learn and properly implement the <strong>backtracking algorithm</strong>.</p>
+          <p>To my surprise, it worked beautifully. Unlike the brute force method, backtracking didn’t restart from scratch whenever it hit a dead end. Instead, it simply “backtracked” one step, trying alternative numbers until the puzzle was solved. The difference was night and day, puzzles generated in <strong>less than 0.5 seconds</strong>, so fast the loading felt instant.</p>
           <p>By 3 AM, the main logic was done, the game was playable, and I even had a responsive UI built with <strong>Next.js</strong>.</p>
         </section>
         <h2 className="pt-8 pb-5 text-3xl font-semibold">Early Feedback</h2>
@@ -82,7 +82,7 @@ export default function NextSudoku() {
           <p>What began as a simple C project with a brute force algorithm in 2023 evolved into a full-stack web app in 2025 with a sleek UI, fast puzzle generation using backtracking, a competitive leaderboard, and integration with AWS DynamoDB.</p>
           <p>That project is now called <Link href="https://next-sudoku-web.vercel.app/" target="_blank" className={`${isDarkMode ? "text-blue-300" : "text-blue-500"} underline`}>NExT Sudoku</Link>, a nod to both its Next.js foundation and the idea of taking Sudoku to the next level.</p>
         </section>
-        <div className="flex mt-5 lg:mt-10">
+        <div className="flex mt-5 lg:mt-10 text-cfgray">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>

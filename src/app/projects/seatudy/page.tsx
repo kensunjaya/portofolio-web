@@ -94,7 +94,7 @@ export default function Seatudy() {
           </div>
           <p>The SEATUDY journey was more than just building an online learning platform. It was about teamwork, problem-solving, and growth. From sleepless nights debugging to standing proudly on stage at COMPFEST, the experience taught me how to collaborate effectively, think architecturally, and deliver under pressure. It was one of the most transformative experiences of my academic life—and SEATUDY will always be a reminder of the power of teamwork and perseverance.</p>
         </section>
-        <div className="flex mt-5 lg:mt-10">
+        <div className="flex mt-5 lg:mt-10 text-cfgray">
           <button onClick={() => handleScrollTo("")} className="flex items-center hover:-translate-y-1 transition duration-300 cursor-pointer animate-pulse hover:text-secondary">
             <FaAngleDoubleUp />
             <span className="ml-2">Back to Top</span>
