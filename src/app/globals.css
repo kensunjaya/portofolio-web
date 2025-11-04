@@ -103,6 +103,11 @@ section {
   mask-size: 100% 100%;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 p {
   line-height: 1.75;
 }

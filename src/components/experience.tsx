@@ -104,6 +104,7 @@ export const Experience = () => {
           className={`
             flex flex-col [@media(min-width:400px)]:portrait:pl-10
             overflow-y-auto 
+            scrollbar-hide
             max-h-[27rem]
             pr-2
             snap-y snap-mandatory 
